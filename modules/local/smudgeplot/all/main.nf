@@ -16,14 +16,14 @@
 //               list (`[]`) instead of a file can be used to work around this issue.
 
 process SMUDGEPLOT_ALL {
-    tag "$meta.id"
+    tag "${meta.id}"
     label 'process_medium'
 
     // TODO nf-core: See section in main README for further information regarding finding and adding container addresses to the section below.
     conda "${moduleDir}/environment.yml"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/smudgeplot:0.4.0--py310r44h397c9d8_1':
-        'biocontainers/smudgeplot:0.4.0--py310r44h397c9d8_1' }"
+    container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
+        ? 'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/67/67768ae2b68b74edaaa5132770984f2369e6e2d50595051953b87d339ecb915f/data'
+        : 'community.wave.seqera.io/library/fastk_smudgeplot:31977b35fedfc753'}"
 
     input:
     // Input .smu file from hetmers step
@@ -35,7 +35,7 @@ process SMUDGEPLOT_ALL {
     tuple val(meta), path("*.tsv"), emit: tsv, optional: true
     tuple val(meta), path("*.txt"), emit: txt, optional: true
     // TODO nf-core: List additional required output channels/values here
-    path "versions.yml"           , emit: versions
+    path "versions.yml", emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -45,9 +45,9 @@ process SMUDGEPLOT_ALL {
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
     smudgeplot.py all \\
-        $args \\
+        ${args} \\
         -o ${prefix} \\
-        $smu_file
+        ${smu_file}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
@@ -59,9 +59,9 @@ process SMUDGEPLOT_ALL {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
+    touch ${prefix}_centralities.pdf
     touch ${prefix}_smudgeplot.pdf
-    touch ${prefix}_smudgeplot_legend.pdf
-    touch ${prefix}_smudgeplot_raw.pdf
+    touch ${prefix}_smudgeplot_log10.pdf
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
