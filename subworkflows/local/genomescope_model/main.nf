@@ -1,6 +1,10 @@
-include { FASTK_FASTK        } from "../../../modules/nf-core/fastk/fastk/main"
-include { SMUDGEPLOT_HETMERS } from '../../../modules/local/smudgeplot/hetmers/main'
-include { SMUDGEPLOT_ALL     } from '../../../modules/local/smudgeplot/all/main'
+include { CAT_CAT as CAT_CAT_READS  } from "../../../modules/nf-core/cat/cat/main"
+include { FASTK_FASTK               } from "../../../modules/nf-core/fastk/fastk/main"
+include { FASTK_HISTEX              } from "../../../modules/nf-core/fastk/histex/main"
+include { TRIO_MODE as TRIO_PROCESS } from '../../../subworkflows/local/trio_mode'
+include { GENESCOPEFK               } from "../../../modules/nf-core/genescopefk/main"
+include { SMUDGEPLOT_HETMERS        } from '../../../modules/local/smudgeplot/hetmers/main'
+include { SMUDGEPLOT_ALL            } from '../../../modules/local/smudgeplot/all/main'
 
 workflow GENOMESCOPE_MODEL {
     take:
@@ -10,9 +14,11 @@ workflow GENOMESCOPE_MODEL {
     trio_flag
 
     main:
+
     ch_versions = Channel.empty()
     patdb_ch = Channel.empty()
     patktab_ch = Channel.empty()
+
 
     //
     // MODULE: MERGE ALL READS IN ONE FILE
@@ -86,13 +92,31 @@ workflow GENOMESCOPE_MODEL {
     ch_versions = ch_versions.mix(GENESCOPEFK.out.versions)
 
     // View kmer channels and reads channels
-    GENESCOPEFK.out.model.view { it -> "Genomescope model: " + it }
-    FASTK_FASTK.out.hist.view { it -> "FastK histogram: " + it }
-    FASTK_FASTK.out.ktab.view { it -> "FastK ktab: " + it }
-    TRIO_PROCESS.out.phapktab.ifEmpty([]).view { it -> "TRIO_PROCESS phapktab: " + it }
-    TRIO_PROCESS.out.mhapktab.ifEmpty([]).view { it -> "TRIO_PROCESS mhapktab: " + it }
-    TRIO_PROCESS.out.matdb.ifEmpty([]).view { it -> "TRIO_PROCESS matdb: " + it }
-    TRIO_PROCESS.out.patdb.ifEmpty([]).view { it -> "TRIO_PROCESS patdb: " + it }
+    // GENESCOPEFK.out.model.view { it -> "Genomescope model: " + it }
+    // FASTK_FASTK.out.hist.view { it -> "FastK histogram: " + it }
+    // FASTK_FASTK.out.ktab.view { it -> "FastK ktab: " + it }
+    // TRIO_PROCESS.out.phapktab.ifEmpty([]).view { it -> "TRIO_PROCESS phapktab: " + it }
+    // TRIO_PROCESS.out.mhapktab.ifEmpty([]).view { it -> "TRIO_PROCESS mhapktab: " + it }
+    // TRIO_PROCESS.out.matdb.ifEmpty([]).view { it -> "TRIO_PROCESS matdb: " + it }
+    // TRIO_PROCESS.out.patdb.ifEmpty([]).view { it -> "TRIO_PROCESS patdb: " + it }
+
+    //
+    // MODULE: GENERATE SMUDGEPLOT HETMERS
+    //
+    // [[id:Galderia_gt20kb_50x], [/ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.1, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.10, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.11, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.12, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.2, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.3, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.4, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.5, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.6]]
+    ch_smudgeplot_hetmers_ch = FASTK_FASTK.out.ktab.map { meta, ktab_files ->
+        // Find the main ktab file (ends with .ktab only)
+        def main_ktab = ktab_files.find { it.name.endsWith('.ktab') && !it.name.contains('.ktab.') }
+        // Get all supplementary files (contain .ktab. pattern)
+        def supp_files = ktab_files.findAll { it.name.contains('.ktab.') }
+
+        return [meta, main_ktab, supp_files]
+    }
+    SMUDGEPLOT_HETMERS(ch_smudgeplot_hetmers_ch)
+    ch_versions = ch_versions.mix(SMUDGEPLOT_HETMERS.out.versions)
+
+    SMUDGEPLOT_ALL(SMUDGEPLOT_HETMERS.out.smu)
+    ch_versions = ch_versions.mix(SMUDGEPLOT_ALL.out.versions)
 
     emit:
     model    = GENESCOPEFK.out.model
@@ -102,5 +126,9 @@ workflow GENOMESCOPE_MODEL {
     mhapktab = TRIO_PROCESS.out.mhapktab.ifEmpty([])
     matdb    = TRIO_PROCESS.out.matdb.ifEmpty([])
     patdb    = TRIO_PROCESS.out.patdb.ifEmpty([])
+    smu      = SMUDGEPLOT_HETMERS.out.smu.ifEmpty([])
+    pdf      = SMUDGEPLOT_ALL.out.pdf.ifEmpty([])
+    tsv      = SMUDGEPLOT_ALL.out.tsv.ifEmpty([])
+    txt      = SMUDGEPLOT_ALL.out.txt.ifEmpty([])
     versions = ch_versions
 }

@@ -12,7 +12,7 @@ nextflow_workflow {
     // TODO nf-core: Add tags for all modules used within this subworkflow
 
     // TODO nf-core: Change the test name preferably indicating the test-data and file-format used
-    test("galderia - fastq - single_end") {
+    test("galderia_gt20kb_50x - non-trio - no mat reads - no pat reads") {
 
         when {
             workflow {
@@ -26,20 +26,48 @@ nextflow_workflow {
                     [ id:'Galderia_gt20kb_50x' ],
                     []
                 ]
-                input[2] = 'non_trio'
-                input[3] = [
+                input[2] = [
                     [ id:'Galderia_gt20kb_50x' ],
                     []
                 ]
+                input[3] = Channel.value('non_trio')
                 """
+
+                
             }
         }
 
-        then {
-            println "workflow.out: ${workflow.out}"
+        then {            
             assertAll(
                 { assert workflow.success },
-                { assert snapshot(workflow.out).match() }
+                { assert snapshot(
+                    workflow.out.hist,
+                    workflow.out.ktab,
+                    workflow.out.model,
+                    workflow.out.smu,
+                    workflow.out.txt,
+                    workflow.out.versions,
+                ).match() 
+                },
+                {
+                    with(workflow.out.pdf) {
+                        assert size() == 1  // Check we have one sample
+                        with(get(0)) {
+                            assert get(0).id == 'Galderia_gt20kb_50x'  // Check meta
+                            with(get(1)) {  // Check files
+                                assert get(0) ==~ /.*Galderia_gt20kb_50x_centralities\.pdf.*/
+                                assert get(1) ==~ /.*Galderia_gt20kb_50x_smudgeplot\.pdf.*/
+                                assert get(2) ==~ /.*Galderia_gt20kb_50x_smudgeplot_log10\.pdf.*/
+                            }
+                        }
+                    }
+                },
+                { assert workflow.out.matdb.flatten().isEmpty() },
+                { assert workflow.out.mhapktab.flatten().isEmpty() },
+                { assert workflow.out.patdb.flatten().isEmpty() },
+                { assert workflow.out.phapktab.flatten().isEmpty() },
+                { assert workflow.out.tsv.flatten().isEmpty() }
+
                 //TODO nf-core: Add all required assertions to verify the test output.
             )
         }
