@@ -143,6 +143,11 @@
                         "git_sha": "45bd069e0d8fc926d8d40d5da81489e70f03aac2",
                         "installed_by": ["modules"]
                     },
+                    "nanoplot": {
+                        "branch": "master",
+                        "git_sha": "9322f997f94451510f974e417ec5277869030b44",
+                        "installed_by": ["modules"]
+                    },
                     "oatk": {
                         "branch": "master",
                         "git_sha": "81880787133db07d9b4c1febd152c090eb8325dc",

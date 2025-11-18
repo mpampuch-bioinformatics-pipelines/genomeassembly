@@ -5,6 +5,7 @@ include { TRIO_MODE as TRIO_PROCESS } from '../../../subworkflows/local/trio_mod
 include { GENESCOPEFK               } from "../../../modules/nf-core/genescopefk/main"
 include { SMUDGEPLOT_HETMERS        } from '../../../modules/local/smudgeplot/hetmers/main'
 include { SMUDGEPLOT_ALL            } from '../../../modules/local/smudgeplot/all/main'
+include { NANOPLOT                  } from "../../../modules/nf-core/nanoplot/main"
 
 workflow GENOMESCOPE_MODEL {
     take:
@@ -19,6 +20,12 @@ workflow GENOMESCOPE_MODEL {
     patdb_ch = Channel.empty()
     patktab_ch = Channel.empty()
 
+
+    //
+    // MODULE: GENERATE NANOPLOT
+    //
+    NANOPLOT(reads)
+    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
 
     //
     // MODULE: MERGE ALL READS IN ONE FILE
@@ -44,6 +51,7 @@ workflow GENOMESCOPE_MODEL {
         .join(reads_merged_ch)
         .map { meta, reads_old, reads_new -> reads_old.renameTo(reads_new) }
 
+
     //
     // MODULE: GENERATE KMER DATABASE
     //
@@ -55,7 +63,6 @@ workflow GENOMESCOPE_MODEL {
     //
     FASTK_HISTEX(FASTK_FASTK.out.hist)
     ch_versions = ch_versions.mix(FASTK_HISTEX.out.versions)
-
 
     //
     // LOGIC: RUN TRIO WHEN TRIO DATA IS AVAILABLE
@@ -75,6 +82,7 @@ workflow GENOMESCOPE_MODEL {
             mat: tuple(mat_meta, mat_data)
         }
         .set { ch_trio_data }
+
     //
     // SUBWORKFLOW: RUN TRIO PROCESS WITH TRIO DATA
     //
@@ -91,19 +99,12 @@ workflow GENOMESCOPE_MODEL {
     GENESCOPEFK(FASTK_HISTEX.out.hist)
     ch_versions = ch_versions.mix(GENESCOPEFK.out.versions)
 
-    // View kmer channels and reads channels
-    // GENESCOPEFK.out.model.view { it -> "Genomescope model: " + it }
-    // FASTK_FASTK.out.hist.view { it -> "FastK histogram: " + it }
-    // FASTK_FASTK.out.ktab.view { it -> "FastK ktab: " + it }
-    // TRIO_PROCESS.out.phapktab.ifEmpty([]).view { it -> "TRIO_PROCESS phapktab: " + it }
-    // TRIO_PROCESS.out.mhapktab.ifEmpty([]).view { it -> "TRIO_PROCESS mhapktab: " + it }
-    // TRIO_PROCESS.out.matdb.ifEmpty([]).view { it -> "TRIO_PROCESS matdb: " + it }
-    // TRIO_PROCESS.out.patdb.ifEmpty([]).view { it -> "TRIO_PROCESS patdb: " + it }
+
 
     //
     // MODULE: GENERATE SMUDGEPLOT HETMERS
     //
-    // [[id:Galderia_gt20kb_50x], [/ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.1, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.10, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.11, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.12, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.2, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.3, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.4, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.5, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.6]]
+    // Needs input like this: [[id:Galderia_gt20kb_50x], [/ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.1, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.10, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.11, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.12, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.2, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.3, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.4, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.5, /ibex/scratch/projects/c2303/work/97/72ff830c98741c137f0ac3f2118c94/.Galderia_gt20kb_50x_fk.ktab.6]]
     ch_smudgeplot_hetmers_ch = FASTK_FASTK.out.ktab.map { meta, ktab_files ->
         // Find the main ktab file (ends with .ktab only)
         def main_ktab = ktab_files.find { it.name.endsWith('.ktab') && !it.name.contains('.ktab.') }
@@ -119,16 +120,19 @@ workflow GENOMESCOPE_MODEL {
     ch_versions = ch_versions.mix(SMUDGEPLOT_ALL.out.versions)
 
     emit:
-    model    = GENESCOPEFK.out.model
-    hist     = FASTK_FASTK.out.hist
-    ktab     = FASTK_FASTK.out.ktab
-    phapktab = TRIO_PROCESS.out.phapktab.ifEmpty([])
-    mhapktab = TRIO_PROCESS.out.mhapktab.ifEmpty([])
-    matdb    = TRIO_PROCESS.out.matdb.ifEmpty([])
-    patdb    = TRIO_PROCESS.out.patdb.ifEmpty([])
-    smu      = SMUDGEPLOT_HETMERS.out.smu.ifEmpty([])
-    pdf      = SMUDGEPLOT_ALL.out.pdf.ifEmpty([])
-    tsv      = SMUDGEPLOT_ALL.out.tsv.ifEmpty([])
-    txt      = SMUDGEPLOT_ALL.out.txt.ifEmpty([])
-    versions = ch_versions
+    model         = GENESCOPEFK.out.model
+    hist          = FASTK_FASTK.out.hist
+    ktab          = FASTK_FASTK.out.ktab
+    phapktab      = TRIO_PROCESS.out.phapktab.ifEmpty([])
+    mhapktab      = TRIO_PROCESS.out.mhapktab.ifEmpty([])
+    matdb         = TRIO_PROCESS.out.matdb.ifEmpty([])
+    patdb         = TRIO_PROCESS.out.patdb.ifEmpty([])
+    smu           = SMUDGEPLOT_HETMERS.out.smu.ifEmpty([])
+    pdf           = SMUDGEPLOT_ALL.out.pdf.ifEmpty([])
+    tsv           = SMUDGEPLOT_ALL.out.tsv.ifEmpty([])
+    txt           = SMUDGEPLOT_ALL.out.txt.ifEmpty([])
+    nanoplot_html = NANOPLOT.out.html.ifEmpty([])
+    nanoplot_png  = NANOPLOT.out.png.ifEmpty([])
+    nanoplot_txt  = NANOPLOT.out.txt.ifEmpty([])
+    versions      = ch_versions
 }

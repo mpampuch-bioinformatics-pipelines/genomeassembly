@@ -46,6 +46,7 @@ nextflow_workflow {
                     workflow.out.model,
                     workflow.out.smu,
                     workflow.out.txt,
+                    workflow.out.nanoplot_txt,
                     workflow.out.versions,
                 ).match() 
                 },
@@ -62,6 +63,45 @@ nextflow_workflow {
                         }
                     }
                 },
+                {
+                    // Test NanoPlot HTML output
+                    with(workflow.out.nanoplot_html) {
+                        println "workflow.out.nanoplot_html: " + workflow.out.nanoplot_html
+                        assert size() == 1  // Check we have one sample
+                        with(get(0)) {
+                            assert get(0).id == 'Galderia_gt20kb_50x'  // Check meta
+                            with(get(1)) {  // Check HTML files
+                                assert get(0) ==~ /.*LengthvsQualityScatterPlot_dot\.html.*/
+                                assert get(1) ==~ /.*LengthvsQualityScatterPlot_kde\.html.*/
+                                assert get(2) ==~ /.*NanoPlot-report\.html.*/
+                                assert get(3) ==~ /.*Non_weightedHistogramReadlength\.html.*/
+                                assert get(4) ==~ /.*Non_weightedLogTransformed_HistogramReadlength\.html.*/
+                                assert get(5) ==~ /.*WeightedHistogramReadlength\.html.*/
+                                assert get(6) ==~ /.*WeightedLogTransformed_HistogramReadlength\.html.*/
+                                assert get(7) ==~ /.*Yield_By_Length\.html.*/
+                            }
+                            
+                        }
+                    }
+                },
+                // {
+                //     // Test NanoPlot TXT output
+                //     with(workflow.out.nanoplot_txt) {
+                //         println "workflow.out.nanoplot_txt: " + workflow.out.nanoplot_txt
+                //         println "workflow.out.nanoplot_txt.get(0): " + workflow.out.nanoplot_txt.get(0)
+                //         println "workflow.out.nanoplot_txt.get(0).get(0): " + workflow.out.nanoplot_txt.get(0).get(0)
+                //         println "workflow.out.nanoplot_txt.get(0).get(1): " + workflow.out.nanoplot_txt.get(0).get(1)
+                //         println "workflow.out.nanoplot_txt.get(0).get(1): file name " + file(workflow.out.nanoplot_txt.get(0).get(1)).name
+                //         assert size() == 1  // Check we have one sample
+                //         with(get(0)) {
+                //             assert get(0).id == 'Galderia_gt20kb_50x'  // Check meta
+                //             with(get(1)) {  // Check TXT file
+                //                 assert file(it).name == 'NanoStats.txt'
+                //                 assert file(it).readLines().size() > 1  // File should have content
+                //             }
+                //         }
+                //     }
+                // },
                 { assert workflow.out.matdb.flatten().isEmpty() },
                 { assert workflow.out.mhapktab.flatten().isEmpty() },
                 { assert workflow.out.patdb.flatten().isEmpty() },
