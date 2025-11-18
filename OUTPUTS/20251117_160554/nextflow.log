@@ -1,0 +1,337 @@
+Nov-17 16:05:59.780 [main] DEBUG nextflow.cli.Launcher - $> nextflow -log OUTPUTS/20251117_160554/nextflow.log run . -c nextflow.config -with-report -profile singularity,kaust --input Galdi_gt20_50x_samplesheet.yaml --outdir OUTPUTS/20251117_160554 --organelles_on false --polishing_on false
+Nov-17 16:05:59.866 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
+Nov-17 16:05:59.888 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/pampum/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
+Nov-17 16:05:59.912 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-17 16:05:59.914 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-17 16:05:59.916 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-17 16:05:59.928 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-17 16:06:00.809 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config
+Nov-17 16:06:00.812 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config
+Nov-17 16:06:00.813 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config
+Nov-17 16:06:00.813 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config
+Nov-17 16:06:00.828 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/pampum/.nextflow/secrets/store.json
+Nov-17 16:06:00.831 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@15eb0ae9] - activable => nextflow.secret.LocalSecretsProvider@15eb0ae9
+Nov-17 16:06:00.844 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity,kaust`
+Nov-17 16:06:04.246 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity,kaust`
+Nov-17 16:06:04.919 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [bih, cfc_dev, uzl_omics, ifb_core, embl_hd, denbi_qbic, alice, mjolnir_globe, uppmax, giga, incliva, ilifu, ki_luria, uge, icr_alma, rosalind_uge, lugh, mccleary, unibe_ibu, vai, czbiohub_aws, jax, roslin, tes, scw, unc_longleaf, tigem, tubingen_apg, apollo, ipop_up, vsc_calcua, pdc_kth, ceci_nic5, ccga_cau, humantechnopole, stjude, daisybio, eddie, medair, biowulf, apptainer, bi, bigpurple, adcra, cedars, pawsey_setonix, vsc_kul_uhasselt, pawsey_nimbus, rki, ucl_myriad, utd_ganymede, charliecloud, fred_hutch, seattlechildrens, icr_davros, ceres, munin, arm, rosalind, hasta, cfc, uzh, shu_bmrc, ebi_codon_slurm, ebc, ccga_dx, crick, ku_sund_danhead, marvin, biohpc_gen, shifter, mana, mamba, york_viking, unc_lccc, wehi, awsbatch, wustl_htcf, arcc, ceci_dragon2, imperial, maestro, software_license, cannon, genotoul, nci_gadi, abims, eva_grace, janelia, nu_genomics, googlebatch, oist, sahmri, kaust, alliance_canada, mpcdf, leicester, vsc_ugent, create, sage, cambridge, jex, podman, ebi_codon, cheaha, xanadu, nyu_hpc, test, marjorie, computerome, ucd_sonic, seg_globe, mssm, sanger, dkfz, cleanup, bluebear, pasteur, einstein, ethz_euler, m3c, test_full, imb, ucl_cscluster, tuos_stanage, azurebatch, seadragon, crukmi, csiro_petrichor, qmul_apocrita, docker, engaging, gis, hypatia, psmn, eva, unity, cropdiversityhpc, nygc, fgcz, conda, crg, singularity, mpcdf_viper, pe2, dirac, self_hosted_runner, tufts, uw_hyak_pedslabs, binac2, hki_genie, debug, genouest, cbe, unsw_katana, utd_juno, phoenix, gitpod, seawulf, uod_hpc, fub_curta, lovelace, uct_hpc, aws_tower, binac, fsu_draco, longranger_lsf_sanger]
+Nov-17 16:06:04.990 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov-17 16:06:05.007 [main] DEBUG nextflow.cli.CmdRun - Launching `./main.nf` [special_heyrovsky] DSL2 - revision: 6caff0e46b
+Nov-17 16:06:05.008 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-17 16:06:05.008 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-17 16:06:05.057 [main] DEBUG nextflow.Session - Session UUID: 58eacd8d-6714-4bf3-88d5-5b4a0cfb0bc4
+Nov-17 16:06:05.058 [main] DEBUG nextflow.Session - Run name: special_heyrovsky
+Nov-17 16:06:05.058 [main] DEBUG nextflow.Session - Executor pool size: 40
+Nov-17 16:06:05.065 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-17 16:06:05.070 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=120; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-17 16:06:05.091 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.6 build 5954
+  Created: 01-07-2025 11:27 UTC (14:27 ADT)
+  System: Linux 5.14.0-427.20.1.el9_4.0.1.x86_64
+  Runtime: Groovy 4.0.26 on Java HotSpot(TM) 64-Bit Server VM 19.0.1+10-21
+  Encoding: UTF-8 (UTF-8)
+  Process: 725901@login509-02-l [10.109.65.7]
+  CPUs: 40 - Mem: 376.6 GB (5 GB) - Swap: 0 (0)
+Nov-17 16:06:05.121 [main] DEBUG nextflow.Session - Work-dir: /ibex/scratch/projects/c2303/work [UNKNOWN (0x18031977)]
+Nov-17 16:06:05.152 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-17 16:06:05.160 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-17 16:06:05.182 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-17 16:06:05.234 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-17 16:06:05.242 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 41; maxThreads: 1000
+Nov-17 16:06:05.309 [main] DEBUG nextflow.Session - Session start
+Nov-17 16:06:05.312 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/OUTPUTS/20251117_160554/genomeassembly_info/execution_trace_2025-11-17_16-06-04.txt
+Nov-17 16:06:05.321 [main] DEBUG nextflow.Session - Using default localLib path: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/lib
+Nov-17 16:06:05.324 [main] DEBUG nextflow.Session - Adding to the classpath library: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/lib
+Nov-17 16:06:05.324 [main] DEBUG nextflow.Session - Adding to the classpath library: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/lib/nfcore_external_java_deps.jar
+Nov-17 16:06:06.001 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-17 16:06:06.046 [main] INFO  nextflow.Nextflow - 
+
+-[2m----------------------------------------------------[0m-
+[0;35m  sanger-tol/genomeassembly v0.10.1dev[0m
+-[2m----------------------------------------------------[0m-
+[1mCore Nextflow options[0m
+  [0;34mrunName                   : [0;32mspecial_heyrovsky[0m
+  [0;34mcontainerEngine           : [0;32msingularity[0m
+  [0;34mlaunchDir                 : [0;32m/ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly[0m
+  [0;34mworkDir                   : [0;32m/ibex/scratch/projects/c2303/work[0m
+  [0;34mprojectDir                : [0;32m/ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly[0m
+  [0;34muserName                  : [0;32mpampum[0m
+  [0;34mprofile                   : [0;32msingularity,kaust[0m
+  [0;34mconfigFiles               : [0;32m/ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config, /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config[0m
+
+[1mInput/output options[0m
+  [0;34minput                     : [0;32mGaldi_gt20_50x_samplesheet.yaml[0m
+  [0;34moutdir                    : [0;32mOUTPUTS/20251117_160554[0m
+  [0;34mtimestamp                 : [0;32m20251117[0m
+  [0;34mhifiasm                   : [0;32mhifiasm.20251117[0m
+  [0;34mhifiasmhic                : [0;32mhifiasm-hic.20251117[0m
+  [0;34mhifiasmtrio               : [0;32mhifiasm-trio.20251117[0m
+
+[1mInstitutional config options[0m
+  [0;34mconfig_profile_name       : [0;32mKAUST[0m
+  [0;34mconfig_profile_description: [0;32mProfile for use on King Abdullah Univesity of Science and Technology (KAUST) Ibex Cluster.[0m
+  [0;34mconfig_profile_contact    : [0;32mHusen Umer (@kaust.edu.sa)[0m
+  [0;34mconfig_profile_url        : [0;32mhttps://docs.hpc.kaust.edu.sa/quickstart/ibex.html[0m
+
+!! Only displaying parameters that differ from the pipeline defaults !!
+-[2m----------------------------------------------------[0m-
+If you use sanger-tol/genomeassembly for your analysis please cite:
+
+* The pipeline
+  https://doi.org/10.5281/zenodo.10391851
+
+* The nf-core framework
+  https://doi.org/10.1038/s41587-020-0439-x
+
+* Software dependencies
+  https://github.com/sanger-tol/genomeassembly/blob/master/CITATIONS.md
+-[2m----------------------------------------------------[0m-
+Nov-17 16:06:06.132 [main] WARN  nextflow.Nextflow - Found unexpected parameters:
+* --igenomes_ignore: true
+Nov-17 16:06:06.133 [main] INFO  nextflow.Nextflow - - [2mIgnore this warning: params.schema_ignore_params = "igenomes_ignore" [0m
+Nov-17 16:06:11.656 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:CAT_CAT_READS
+Nov-17 16:06:11.672 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.672 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.681 [main] DEBUG nextflow.executor.Executor - [warm up] executor > slurm
+Nov-17 16:06:11.688 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'slurm' > capacity: 100; pollInterval: 5s; dumpInterval: 5m 
+Nov-17 16:06:11.690 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: slurm)
+Nov-17 16:06:11.692 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'slurm' > queue-stat-interval: 1m
+Nov-17 16:06:11.711 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:CAT_CAT_READS': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.752 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:FASTK_FASTK
+Nov-17 16:06:11.753 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:FASTK_FASTK` matches process SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:FASTK_FASTK
+Nov-17 16:06:11.760 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.760 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.761 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:FASTK_FASTK': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.768 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:FASTK_HISTEX
+Nov-17 16:06:11.768 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:FASTK_HISTEX` matches process SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:FASTK_HISTEX
+Nov-17 16:06:11.772 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.772 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.773 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:FASTK_HISTEX': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.795 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:YAK_COUNT_PAT
+Nov-17 16:06:11.797 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:YAK_COUNT_PAT` matches process SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:YAK_COUNT_PAT
+Nov-17 16:06:11.801 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.801 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.802 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:YAK_COUNT_PAT': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.809 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:FASTK_PAT
+Nov-17 16:06:11.810 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:FASTK_FASTK` matches process SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:FASTK_PAT
+Nov-17 16:06:11.814 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.814 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.815 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:FASTK_PAT': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.823 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:YAK_COUNT_MAT
+Nov-17 16:06:11.824 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:YAK_COUNT_MAT` matches process SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:YAK_COUNT_MAT
+Nov-17 16:06:11.828 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.828 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.829 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:YAK_COUNT_MAT': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.833 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:FASTK_MAT
+Nov-17 16:06:11.834 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:FASTK_FASTK` matches process SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:FASTK_MAT
+Nov-17 16:06:11.838 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.838 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.839 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:FASTK_MAT': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.850 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:MERQURYFK_HAPMAKER
+Nov-17 16:06:11.854 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.854 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.855 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS:MERQURYFK_HAPMAKER': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.871 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_low` matches labels `process_low` for process with name SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:GENESCOPEFK
+Nov-17 16:06:11.872 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:GENESCOPEFK` matches process SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:GENESCOPEFK
+Nov-17 16:06:11.875 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: slurm
+Nov-17 16:06:11.875 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'slurm'
+Nov-17 16:06:11.876 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:GENESCOPEFK': maxForks=0; fair=false; array=0
+Nov-17 16:06:11.900 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_aa7b03ff260fde92: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/longranger/align/main.nf
+  Script_89e112605cfd4f20: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/convert_stats.nf
+  Script_9e0d7d9f85245e1e: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/hic_mapping.nf
+  Script_450cf603595c3a69: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/busco/main.nf
+  Script_8d1530ffcac39ad9: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/purge_dups.nf
+  Script_a580e35d43a24d02: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/merquryfk/merquryfk/main.nf
+  Script_3561997fc94d6f98: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/samtools/view/main.nf
+  Script_a33a375a1d3d6ba9: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/bcftools/norm/main.nf
+  Script_564eb4a89a3c254a: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/genome_statistics.nf
+  Script_f54241cedf8b66b1: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/yak/count/main.nf
+  Script_4e9e9dfb12c4e890: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/bcftools/consensus/main.nf
+  Script_08e8120406c42c87: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/samtools/stats/main.nf
+  Script_4096f0675702059a: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/freebayes/main.nf
+  Script_cb211c549341a328: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/samtools/idxstats/main.nf
+  Script_d4f69a28bab7b5ac: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/seqtk/subseq/main.nf
+  Script_c2a21f1f7e763932: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/workflows/genomeassembly.nf
+  Script_a32923622b6038f6: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/get_calcuts_params.nf
+  Script_aacf09ac6874e163: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/hic_bwamem2.nf
+  Script_ea0fafa6043db150: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/yahs/main.nf
+  Script_a4905a73e1a2f1ce: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/cat/cat/main.nf
+  Script_8e81ae2b968afee5: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/samtools/merge/main.nf
+  Script_a087bb888527713b: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/generate_cram_csv.nf
+  Script_0d3ce29268c00401: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/purgedups/splitfa/main.nf
+  Script_fbf08554d711bece: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/gatk4/mergevcfs/main.nf
+  Script_b057ffa7e91f73a2: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/purgedups/getseqs/main.nf
+  Script_e4a7ddef4c4a998b: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/minimap2/index/main.nf
+  Script_5ca21da1f350a6ba: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/cooler/zoomify/main.nf
+  Script_1dbce7086e1a15e1: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/pretextmap/main.nf
+  Script_d5ea471dea270df3: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/bed_chunks.nf
+  Script_f94987753f5535a4: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/mitohifi/findmitoreference/main.nf
+  Script_b03be2772b1957f5: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/cooler/cload/main.nf
+  Script_e9c07e3505f0e32a: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/bcftools/concat/main.nf
+  Script_eea6719602d137b5: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/genescopefk/main.nf
+  Script_813f8bd24f68044c: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/samtools/flagstat/main.nf
+  Script_9838e8cbbdd26217: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/merquryfk_hapmaker.nf
+  Script_0e1385d55e695123: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/bcftools/sort/main.nf
+  Script_864cf4719ca0504e: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/mitohifi/mitohifi/main.nf
+  Script_4c96f376d781fe3a: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/fastk/fastk/main.nf
+  Script_622d4b2a91e75ea6: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/samtools/index/main.nf
+  Script_b342aed228e3f274: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/scaffolding.nf
+  Script_ed773fa8a32f8f37: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/oatk/main.nf
+  Script_8e5a33240a7a8729: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/keep_seqnames.nf
+  Script_6d6f797a4a5c079c: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/purgedups/calcuts/main.nf
+  Script_f560ba5b2809315b: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/custom/dumpsoftwareversions/main.nf
+  Script_ea35d5971a7a106e: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/organelles.nf
+  Script_834b225b85296142: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/prepare_pretext_input.nf
+  Script_0843ffb2b86ff77e: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/polishing.nf
+  Script_057e6c6647b1b90b: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/raw_assembly.nf
+  Script_ccf78deea6f69e00: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/gfastats/main.nf
+  Script_748c1752a6a685d2: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/bcftools/view/main.nf
+  Script_9e527d20186e2345: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/fastk/histex/main.nf
+  Script_5ae50dff57a79d71: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/bamtobed_sort.nf
+  Script_32c95e032796a78f: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/longranger/mkref/main.nf
+  Script_0922dde7b4e60bde: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/bwamem2/index/main.nf
+  Script_c2201b497ebc69ad: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/purgedups/purgedups/main.nf
+  Script_9de9a80ff8ad3411: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/gfa_to_fasta.nf
+  Script_08b6923cf0e0c218: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/main.nf
+  Script_b0e9f36270d2c792: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/bcftools/index/main.nf
+  Script_6ac50a62cb12ecdc: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/prepare_input.nf
+  Script_1c4b9a1e8790c1e2: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/samtools/markdup/main.nf
+  Script_9c1b595be48c8650: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/longranger_coverage.nf
+  Script_a9460069bad70e4d: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/pretextsnapshot/main.nf
+  Script_e1a489f1eb2ab75d: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/hifiasm/main.nf
+  Script_6a723b7a2843d595: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/juicer_pre.nf
+  Script_643233618d04c07e: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/smudgeplot/main.nf
+  Script_257773e985b10bce: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/trio_mode.nf
+  Script_f5bd661edf54a976: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/cram_filter_minimap2_filter5end_fixmate_sort.nf
+  Script_ff9f5b53454bed17: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/hic_minimap2.nf
+  Script_e1a2f294fc039f8c: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/juicer_tools_pre.nf
+  Script_feb5d821025d3acf: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/purgedups/pbcstat/main.nf
+  Script_172c8bf0e3c7d2b6: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/subworkflows/local/genomescope_model/main.nf
+  Script_f1ff6e7cc7627b06: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/cram_filter_align_bwamem2_fixmate_sort.nf
+  Script_0cc59a58c0c28965: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/minimap2/align/main.nf
+  Script_82c5624f5f63abe7: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/nf-core/samtools/faidx/main.nf
+  Script_e73ee4156be270fe: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/chrom_sizes.nf
+Nov-17 16:06:11.900 [main] DEBUG nextflow.Session - Session aborted -- Cause: Missing workflow output parameter: model
+Nov-17 16:06:11.922 [main] DEBUG nextflow.Session - The following nodes are still active:
+  [operator] map
+  [operator] multiMap
+  [operator] flatten
+  [operator] multiMap
+  [operator] combine
+  [operator] combine
+  [operator] flatten
+  [operator] map
+  [operator] combine
+  [operator] ifEmpty
+  [operator] mix
+  [operator] map
+  [operator] mix
+  [operator] map
+  [operator] join
+  [operator] map
+  [operator] mix
+  [operator] mix
+  [operator] combine
+  [operator] combine
+  [operator] branch
+  [operator] multiMap
+  [operator] mix
+  [operator] mix
+  [operator] mix
+  [operator] mix
+  [operator] combine
+  [operator] map
+  [operator] combine
+  [operator] map
+  [operator] mix
+  [operator] mix
+  [operator] view
+  [operator] view
+  [operator] view
+  [operator] ifEmpty
+  [operator] view
+  [operator] ifEmpty
+  [operator] view
+  [operator] ifEmpty
+  [operator] view
+  [operator] ifEmpty
+  [operator] view
+
+Nov-17 16:06:11.928 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: slurm) - terminating tasks monitor poll loop
+Nov-17 16:06:11.929 [main] ERROR nextflow.cli.Launcher - @unknown
+nextflow.exception.MissingValueException: Missing workflow output parameter: model
+	at nextflow.script.WorkflowDef.collectOutputs(WorkflowDef.groovy:150)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:207)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:392)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_c2a21f1f7e763932$_runScript_closure1$_closure3.doCall(Script_c2a21f1f7e763932:119)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:392)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_08b6923cf0e0c218$_runScript_closure1$_closure3.doCall(Script_08b6923cf0e0c218:32)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at nextflow.script.ComponentDef.invoke_o(ComponentDef.groovy:40)
+	at nextflow.script.WorkflowBinding.invokeMethod(WorkflowBinding.groovy:105)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:651)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeOnDelegationObjects(ClosureMetaClass.java:392)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:331)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_08b6923cf0e0c218$_runScript_closure2$_closure4.doCall(Script_08b6923cf0e0c218:46)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowDef.run0(WorkflowDef.groovy:205)
+	at nextflow.script.WorkflowDef.run(WorkflowDef.groovy:189)
+	at nextflow.script.BindableDef.invoke_a(BindableDef.groovy:51)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:182)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:193)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy:246)
+	at nextflow.script.parser.v1.ScriptLoaderV1.runScript(ScriptLoaderV1.groovy)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:246)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:139)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:379)
+	at nextflow.cli.Launcher.run(Launcher.groovy:513)
+	at nextflow.cli.Launcher.main(Launcher.groovy:673)

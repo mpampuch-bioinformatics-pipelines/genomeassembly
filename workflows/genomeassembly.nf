@@ -44,7 +44,7 @@ unset_busco_alts = false
 include { PREPARE_INPUT                                         } from '../subworkflows/local/prepare_input'
 include { RAW_ASSEMBLY                                          } from '../subworkflows/local/raw_assembly' 
 include { ORGANELLES                                            } from '../subworkflows/local/organelles' 
-include { GENOMESCOPE_MODEL                                     } from '../subworkflows/local/genomescope_model'
+include { GENOMESCOPE_MODEL                                     } from '../subworkflows/local/genomescope_model/main'
 include { PURGE_DUPS                                            } from '../subworkflows/local/purge_dups'
 include { POLISHING                                             } from '../subworkflows/local/polishing'
 include { SCAFFOLDING                                           } from '../subworkflows/local/scaffolding'
@@ -118,6 +118,7 @@ workflow GENOMEASSEMBLY {
     //
     GENOMESCOPE_MODEL( hifi_reads_ch, mat_reads_ch, pat_reads_ch, trio_flag_ch)
     ch_versions = ch_versions.mix(GENOMESCOPE_MODEL.out.versions)
+    return 
 
     if (params.hifiasm_trio_on) {
 

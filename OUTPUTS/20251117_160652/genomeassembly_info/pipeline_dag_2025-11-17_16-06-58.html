@@ -1,0 +1,192 @@
+<!--
+  ~ Copyright 2013-2024, Seqera Labs
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<pre class="mermaid" style="text-align: center;">
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#B6ECE2',
+      'primaryTextColor': '#160F26',
+      'primaryBorderColor': '#065647',
+      'lineColor': '#545555',
+      'clusterBkg': '#BABCBD22',
+      'clusterBorder': '#DDDEDE',
+      'fontFamily': 'arial'
+    }
+  }
+}%%
+flowchart TB
+    subgraph " "
+    v2["Channel.of"]
+    end
+    subgraph " "
+    v5["mito"]
+    v6[" "]
+    v7["plastid"]
+    v10["illumina_10X"]
+    v16["busco"]
+    v20["hic_reads_ch"]
+    v31[" "]
+    v33[" "]
+    v40[" "]
+    v45[" "]
+    v46[" "]
+    v51[" "]
+    v52[" "]
+    v56[" "]
+    v63[" "]
+    v64[" "]
+    v65[" "]
+    v66[" "]
+    v67[" "]
+    v70[" "]
+    v72[" "]
+    v74[" "]
+    v77[" "]
+    v80[" "]
+    v83[" "]
+    v86[" "]
+    v88["phapktab"]
+    v90["mhapktab"]
+    v92["matdb"]
+    v94["patdb"]
+    v96["ch_versions"]
+    end
+    subgraph "SANGERTOL_GENOMEASSEMBLY [SANGERTOL_GENOMEASSEMBLY]"
+    subgraph "SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY [GENOMEASSEMBLY]"
+    subgraph "SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL [GENOMESCOPE_MODEL]"
+    v26(["CAT_CAT_READS"])
+    v32(["FASTK_FASTK"])
+    v35(["FASTK_HISTEX"])
+    subgraph "SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:GENOMESCOPE_MODEL:TRIO_PROCESS [TRIO_PROCESS]"
+    v43(["YAK_COUNT_PAT"])
+    v44(["FASTK_PAT"])
+    v49(["YAK_COUNT_MAT"])
+    v50(["FASTK_MAT"])
+    v55(["MERQURYFK_HAPMAKER"])
+    v47(( ))
+    v57(( ))
+    v59(( ))
+    end
+    v62(["GENESCOPEFK"])
+    v27(( ))
+    v28(( ))
+    v37(( ))
+    v69(( ))
+    v71(( ))
+    v73(( ))
+    v75(( ))
+    v78(( ))
+    v81(( ))
+    v84(( ))
+    v87(( ))
+    v89(( ))
+    v91(( ))
+    v93(( ))
+    end
+    subgraph "SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:PREPARE_INPUT [PREPARE_INPUT]"
+    v3(( ))
+    v17(( ))
+    end
+    v18(( ))
+    v19(( ))
+    end
+    end
+    v2 --> v3
+    v3 --> v5
+    v3 --> v6
+    v3 --> v7
+    v3 --> v10
+    v3 --> v16
+    v19 --> v20
+    v3 --> v26
+    v26 --> v27
+    v26 --> v28
+    v28 --> v31
+    v28 --> v32
+    v32 --> v35
+    v32 --> v55
+    v32 --> v33
+    v32 --> v27
+    v32 --> v71
+    v32 --> v73
+    v35 --> v62
+    v35 --> v27
+    v37 --> v40
+    v37 --> v43
+    v43 --> v47
+    v43 --> v84
+    v43 --> v93
+    v37 --> v44
+    v44 --> v46
+    v44 --> v55
+    v44 --> v45
+    v44 --> v47
+    v44 --> v57
+    v37 --> v49
+    v49 --> v47
+    v49 --> v81
+    v49 --> v91
+    v37 --> v50
+    v50 --> v52
+    v50 --> v55
+    v50 --> v51
+    v50 --> v47
+    v50 --> v59
+    v55 --> v56
+    v55 --> v57
+    v55 --> v59
+    v62 --> v67
+    v62 --> v66
+    v62 --> v65
+    v62 --> v64
+    v62 --> v63
+    v62 --> v27
+    v62 --> v69
+    v69 --> v70
+    v71 --> v72
+    v73 --> v74
+    v75 --> v77
+    v78 --> v80
+    v81 --> v83
+    v84 --> v86
+    v87 --> v88
+    v89 --> v90
+    v91 --> v92
+    v93 --> v94
+    v18 --> v96
+    v3 --> v19
+    v3 --> v37
+    v17 --> v18
+    v27 --> v18
+    v47 --> v27
+    v57 --> v75
+    v57 --> v87
+    v59 --> v78
+    v59 --> v89
+
+</pre>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, maxTextSize: Number.MAX_SAFE_INTEGER, maxEdges: Number.MAX_SAFE_INTEGER });
+</script>
+</body>
+</html>

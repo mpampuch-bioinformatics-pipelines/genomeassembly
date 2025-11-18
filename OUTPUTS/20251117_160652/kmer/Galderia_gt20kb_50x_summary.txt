@@ -1,0 +1,15 @@
+GenomeScope version 2.0
+input file = Galderia_gt20kb_50x.hist
+output directory = .
+p = 2
+k = 31
+name prefix = Galderia_gt20kb_50x
+
+property                      min               max               
+Homozygous (aa)               99.711%           100%              
+Heterozygous (ab)             0%                0.288992%         
+Genome Haploid Length         NA bp             24,413,906 bp     
+Genome Repeat Length          15,288,342 bp     15,569,489 bp     
+Genome Unique Length          8,905,136 bp      9,068,898 bp      
+Model Fit                     58.8207%          95.8283%          
+Read Error Rate               0.17926%          0.17926%          

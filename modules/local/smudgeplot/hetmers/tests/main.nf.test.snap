@@ -1,0 +1,81 @@
+{
+    "Kmer folder": {
+        "content": [
+            {
+                "0": [
+                    
+                ],
+                "1": [
+                    
+                ],
+                "smu": [
+                    
+                ],
+                "versions": [
+                    
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-11-17T17:16:43.634419963"
+    },
+    "Multiple k-mer table files": {
+        "content": [
+            {
+                "0": [
+                    [
+                        {
+                            "id": "Galderia_gt20kb_50x"
+                        },
+                        "Galderia_gt20kb_50x_text.smu:md5,27c2b9f267f131a096bf59e76c61ec05"
+                    ]
+                ],
+                "1": [
+                    "versions.yml:md5,22a51883c51a3b483370141fb09fc290"
+                ],
+                "smu": [
+                    [
+                        {
+                            "id": "Galderia_gt20kb_50x"
+                        },
+                        "Galderia_gt20kb_50x_text.smu:md5,27c2b9f267f131a096bf59e76c61ec05"
+                    ]
+                ],
+                "versions": [
+                    "versions.yml:md5,22a51883c51a3b483370141fb09fc290"
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-11-18T10:04:10.456731002"
+    },
+    "Single k-mer table file": {
+        "content": [
+            {
+                "0": [
+                    
+                ],
+                "1": [
+                    
+                ],
+                "smu": [
+                    
+                ],
+                "versions": [
+                    
+                ]
+            }
+        ],
+        "meta": {
+            "nf-test": "0.9.2",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2025-11-17T16:43:12.188808183"
+    }
+}

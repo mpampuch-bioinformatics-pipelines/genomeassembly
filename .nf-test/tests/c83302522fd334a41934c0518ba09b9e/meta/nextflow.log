@@ -1,0 +1,162 @@
+Nov-18 10:04:21.523 [main] DEBUG nextflow.cli.Launcher - $> nextflow -log /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/meta/nextflow.log run /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test-c83302522fd334a41934c0518ba09b9e.nf -c /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config -c /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/tests/nextflow.config -params-file /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/meta/params.json -ansi-log false -profile singularity,test -with-trace /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/meta/trace.csv -w /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/work
+Nov-18 10:04:21.612 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 25.04.6
+Nov-18 10:04:21.651 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/pampum/.nextflow/plugins; core-plugins: nf-amazon@2.15.0,nf-azure@1.16.0,nf-cloudcache@0.4.3,nf-codecommit@0.2.3,nf-console@1.2.1,nf-google@1.21.1,nf-k8s@1.0.0,nf-tower@1.11.4,nf-wave@1.12.1
+Nov-18 10:04:21.678 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-18 10:04:21.679 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-18 10:04:21.682 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Nov-18 10:04:21.694 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-18 10:04:21.717 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config
+Nov-18 10:04:21.721 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config
+Nov-18 10:04:21.722 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/tests/nextflow.config
+Nov-18 10:04:21.723 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config
+Nov-18 10:04:21.724 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/nextflow.config
+Nov-18 10:04:21.724 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/tests/nextflow.config
+Nov-18 10:04:21.751 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/pampum/.nextflow/secrets/store.json
+Nov-18 10:04:21.755 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@601cbd8c] - activable => nextflow.secret.LocalSecretsProvider@601cbd8c
+Nov-18 10:04:21.777 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity,test`
+Nov-18 10:04:24.612 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity,test`
+Nov-18 10:04:25.163 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `singularity,test`
+Nov-18 10:04:25.178 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [bih, cfc_dev, uzl_omics, ifb_core, embl_hd, denbi_qbic, alice, mjolnir_globe, uppmax, giga, incliva, ilifu, ki_luria, uge, icr_alma, rosalind_uge, lugh, mccleary, unibe_ibu, vai, czbiohub_aws, jax, roslin, tes, scw, unc_longleaf, tigem, tubingen_apg, apollo, ipop_up, vsc_calcua, pdc_kth, ceci_nic5, ccga_cau, humantechnopole, stjude, daisybio, eddie, medair, biowulf, apptainer, bi, bigpurple, adcra, cedars, pawsey_setonix, vsc_kul_uhasselt, pawsey_nimbus, rki, ucl_myriad, utd_ganymede, charliecloud, fred_hutch, seattlechildrens, icr_davros, ceres, munin, arm, rosalind, hasta, cfc, uzh, shu_bmrc, ebi_codon_slurm, ebc, ccga_dx, crick, ku_sund_danhead, marvin, biohpc_gen, shifter, mana, mamba, york_viking, unc_lccc, wehi, awsbatch, wustl_htcf, arcc, ceci_dragon2, imperial, maestro, software_license, cannon, genotoul, nci_gadi, abims, eva_grace, janelia, nu_genomics, googlebatch, oist, sahmri, kaust, alliance_canada, mpcdf, leicester, vsc_ugent, create, sage, cambridge, jex, podman, ebi_codon, cheaha, xanadu, nyu_hpc, test, marjorie, computerome, ucd_sonic, seg_globe, mssm, sanger, dkfz, cleanup, bluebear, pasteur, einstein, ethz_euler, m3c, test_full, imb, ucl_cscluster, tuos_stanage, azurebatch, seadragon, crukmi, csiro_petrichor, qmul_apocrita, docker, engaging, gis, hypatia, psmn, eva, unity, cropdiversityhpc, nygc, fgcz, conda, crg, singularity, mpcdf_viper, pe2, dirac, self_hosted_runner, tufts, uw_hyak_pedslabs, binac2, hki_genie, debug, genouest, cbe, unsw_katana, utd_juno, phoenix, gitpod, seawulf, uod_hpc, fub_curta, lovelace, uct_hpc, aws_tower, binac, fsu_draco, longranger_lsf_sanger]
+Nov-18 10:04:25.222 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Nov-18 10:04:25.240 [main] INFO  nextflow.cli.CmdRun - Launching `/ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test-c83302522fd334a41934c0518ba09b9e.nf` [trusting_faraday] DSL2 - revision: 29e74a7de0
+Nov-18 10:04:25.242 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-18 10:04:25.242 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Nov-18 10:04:25.337 [main] DEBUG nextflow.Session - Session UUID: b80344eb-0965-4784-8ae3-955d7f7dbad4
+Nov-18 10:04:25.338 [main] DEBUG nextflow.Session - Run name: trusting_faraday
+Nov-18 10:04:25.338 [main] DEBUG nextflow.Session - Executor pool size: 40
+Nov-18 10:04:25.346 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Nov-18 10:04:25.351 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=120; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-18 10:04:25.370 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 25.04.6 build 5954
+  Created: 01-07-2025 11:27 UTC (14:27 ADT)
+  System: Linux 5.14.0-427.20.1.el9_4.0.1.x86_64
+  Runtime: Groovy 4.0.26 on Java HotSpot(TM) 64-Bit Server VM 19.0.1+10-21
+  Encoding: UTF-8 (UTF-8)
+  Process: 920883@login509-02-r [10.109.65.8]
+  CPUs: 40 - Mem: 376.6 GB (3 GB) - Swap: 0 (0)
+Nov-18 10:04:25.404 [main] DEBUG nextflow.Session - Work-dir: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/work [UNKNOWN (0x18031977)]
+Nov-18 10:04:25.438 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-18 10:04:25.447 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-18 10:04:25.469 [main] DEBUG nextflow.Session - Observer factory (v2): LinObserverFactory
+Nov-18 10:04:25.499 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Nov-18 10:04:25.510 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 41; maxThreads: 1000
+Nov-18 10:04:25.585 [main] DEBUG nextflow.Session - Session start
+Nov-18 10:04:25.589 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/meta/trace.csv
+Nov-18 10:04:25.600 [main] DEBUG nextflow.Session - Using default localLib path: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/lib
+Nov-18 10:04:25.604 [main] DEBUG nextflow.Session - Adding to the classpath library: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/lib
+Nov-18 10:04:25.605 [main] DEBUG nextflow.Session - Adding to the classpath library: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/lib/nfcore_external_java_deps.jar
+Nov-18 10:04:25.840 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-18 10:04:26.104 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:process_medium` matches labels `process_medium` for process with name SMUDGEPLOT_HETMERS
+Nov-18 10:04:26.132 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-18 10:04:26.132 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-18 10:04:26.138 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-18 10:04:26.145 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=40; memory=376.6 GB; capacity=40; pollInterval=100ms; dumpInterval=5m
+Nov-18 10:04:26.147 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Nov-18 10:04:26.168 [main] DEBUG nextflow.processor.TaskProcessor - Creating process 'SMUDGEPLOT_HETMERS': maxForks=0; fair=false; array=0
+Nov-18 10:04:26.231 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SMUDGEPLOT_HETMERS
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: .*:HIFIASM.*
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: .*MINIMAP2_ALIGN.*
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: .*BWAMEM2_INDEX.*
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS_TRIO:MERQURYFK_MERQURYFK
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: YAK_COUNT_MAT
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: YAK_COUNT_PAT
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: CUSTOM_DUMPSOFTWAREVERSIONS
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: FASTK_FASTK
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: FASTK_HISTEX
+Nov-18 10:04:26.256 [main] WARN  nextflow.Session - There's no process matching config selector: GENESCOPEFK
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: HIFIASM_PRI
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*RAW_ASSEMBLY:GFA_TO_FASTA_PRI
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*RAW_ASSEMBLY:GFA_TO_FASTA_ALT
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW:GFASTATS_PRI
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW:GFASTATS_HAP
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW:BUSCO_PRI
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW:MERQURYFK_MERQURYFK
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: HIFIASM_HIC
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*RAW_ASSEMBLY:GFA_TO_FASTA_HAP1_HIC
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*RAW_ASSEMBLY:GFA_TO_FASTA_HAP2_HIC
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*RAW_ASSEMBLY:GFA_TO_FASTA_.*HIC
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW_HIC:GFASTATS_PRI
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW_HIC:GFASTATS_HAP
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW_HIC:BUSCO_PRI
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW_HIC:BUSCO_HAP
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_RAW_HIC:MERQURYFK_MERQURYFK
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: MITOHIFI_FINDMITOREFERENCE
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*MITOHIFI_MITOHIFI_READS
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*MITOHIFI_MITOHIFI_CONTIGS
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*ORGANELLES:OATK
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*PURGE_DUPS:MINIMAP2_ALIGN_READS
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*PURGE_DUPS:PURGEDUPS_PBCSTAT
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*PURGE_DUPS:GET_CALCUTS_PARAMS
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*PURGE_DUPS:PURGEDUPS_CALCUTS
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*PURGE_DUPS:PURGEDUPS_SPLITFA
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*PURGE_DUPS:MINIMAP2_ALIGN_ASSEMBLY
+Nov-18 10:04:26.257 [main] WARN  nextflow.Session - There's no process matching config selector: .*PURGE_DUPS:PURGEDUPS_PURGEDUPS
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*PURGE_DUPS:PURGEDUPS_GETSEQS
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*CAT_CAT_HAPLOTIGS
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_PURGED:GFASTATS_PRI
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_PURGED:GFASTATS_HAP
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_PURGED:BUSCO_PRI
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_PURGED:MERQURYFK_MERQURYFK
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING:SAMTOOLS_MARKDUP_HIC_MAPPING
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING.*:SAMTOOLS_MERGE_HIC_MAPPING
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: CRAM_FILTER_ALIGN_BWAMEM2_FIXMATE_SORT
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: CRAM_FILTER_MINIMAP2_FILTER5END_FIXMATE_SORT
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING:BAMTOBED_SORT
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING.*:CONVERT_STATS:SAMTOOLS_VIEW
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING:CONVERT_STATS:SAMTOOLS_STATS
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING:CONVERT_STATS:SAMTOOLS_FLAGSTAT
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING:CONVERT_STATS:SAMTOOLS_IDXSTATS
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING:YAHS
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING:COOLER_CLOAD
+Nov-18 10:04:26.258 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING:PRETEXTSNAPSHOT
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING:JUICER_TOOLS_PRE
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING:JUICER_PRE
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS:GFASTATS_PRI
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS:BUSCO_PRI
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS:MERQURYFK_MERQURYFK
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING_HAP.*:SAMTOOLS_MARKDUP_HIC_MAPPING
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING_HAP.*:BAMTOBED_SORT
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING_HAP.*:CONVERT_STATS:SAMTOOLS_STATS
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING_HAP.*:CONVERT_STATS:SAMTOOLS_FLAGSTAT
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIC_MAPPING_HAP.*:CONVERT_STATS:SAMTOOLS_IDXSTATS
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING_HAP.*:YAHS
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING_HAP.*:COOLER_CLOAD
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING_HAP.*:PRETEXTSNAPSHOT
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING_HAP.*:JUICER_TOOLS_PRE
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*SCAFFOLDING_HAP.*:JUICER_PRE
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*RAW_ASSEMBLY:GFA_TO_FASTA_MAT
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*RAW_ASSEMBLY:GFA_TO_FASTA_PAT
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS_HAPS:GFASTATS_PRI
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS_HAPS:GFASTATS_HAP
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS_HAPS:BUSCO_PRI
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS_HAPS:BUSCO_HAP
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: .*GENOME_STATISTICS_SCAFFOLDS_HAPS:MERQURYFK_MERQURYFK
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: BUSCO
+Nov-18 10:04:26.259 [main] WARN  nextflow.Session - There's no process matching config selector: YAHS
+Nov-18 10:04:26.260 [main] WARN  nextflow.Session - There's no process matching config selector: .*HIFIASM.*
+Nov-18 10:04:26.260 [main] WARN  nextflow.Session - There's no process matching config selector: .*OATK
+Nov-18 10:04:26.262 [main] DEBUG nextflow.Session - Igniting dataflow network (1)
+Nov-18 10:04:26.262 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SMUDGEPLOT_HETMERS
+Nov-18 10:04:26.263 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_4b3f29ac38f16a94: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/modules/local/smudgeplot/hetmers/main.nf
+  Script_e3c2035f02681304: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test-c83302522fd334a41934c0518ba09b9e.nf
+Nov-18 10:04:26.263 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Nov-18 10:04:26.263 [main] DEBUG nextflow.Session - Session await
+Nov-18 10:04:26.374 [Actor Thread 10] WARN  nextflow.container.SingularityCache - Singularity cache directory has not been defined -- Remote image will be stored in the path: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/work/singularity -- Use the environment variable NXF_SINGULARITY_CACHEDIR to specify a different location
+Nov-18 10:04:26.374 [Actor Thread 10] INFO  nextflow.container.SingularityCache - Pulling Singularity image https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/67/67768ae2b68b74edaaa5132770984f2369e6e2d50595051953b87d339ecb915f/data [cache /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/work/singularity/community-cr-prod.seqera.io-docker-registry-v2-blobs-sha256-67-67768ae2b68b74edaaa5132770984f2369e6e2d50595051953b87d339ecb915f-data.img]
+Nov-18 10:04:27.548 [Actor Thread 10] DEBUG nextflow.container.SingularityCache - Singularity pull complete image=https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/67/67768ae2b68b74edaaa5132770984f2369e6e2d50595051953b87d339ecb915f/data path=/ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/work/singularity/community-cr-prod.seqera.io-docker-registry-v2-blobs-sha256-67-67768ae2b68b74edaaa5132770984f2369e6e2d50595051953b87d339ecb915f-data.img
+Nov-18 10:04:27.704 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-18 10:04:27.708 [Task submitter] INFO  nextflow.Session - [e0/a21177] Submitted process > SMUDGEPLOT_HETMERS (Galderia_gt20kb_50x)
+Nov-18 10:04:44.520 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: SMUDGEPLOT_HETMERS (Galderia_gt20kb_50x); status: COMPLETED; exit: 0; error: -; workDir: /ibex/project/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/.nf-test/tests/c83302522fd334a41934c0518ba09b9e/work/e0/a21177fef273ab5039aa0750db3532]
+Nov-18 10:04:44.522 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=120; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Nov-18 10:04:44.573 [main] DEBUG nextflow.Session - Session await > all processes finished
+Nov-18 10:04:44.615 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Nov-18 10:04:44.615 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-18 10:04:44.620 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Nov-18 10:04:44.643 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=1; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=1m 5s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=1; peakCpus=4; peakMemory=15 GB; ]
+Nov-18 10:04:44.643 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Nov-18 10:04:44.645 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Nov-18 10:04:45.221 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Nov-18 10:04:45.327 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Nov-18 10:04:45.347 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Nov-18 10:04:45.347 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

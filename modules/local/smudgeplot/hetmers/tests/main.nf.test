@@ -1,0 +1,66 @@
+nextflow_process {
+
+    name "Test Process SMUDGEPLOT_HETMERS"
+    script "../main.nf"
+    process "SMUDGEPLOT_HETMERS"
+
+    tag "modules"
+    tag "modules_local"
+    tag "smudgeplot"
+    tag "smudgeplot/hetmers"
+    
+
+    test("Multiple k-mer table files") {
+        tag "all"
+        when {
+            process {
+                """
+                input[0] = [
+                    [ id: 'Galderia_gt20kb_50x' ],
+                    file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/Galderia_gt20kb_50x_fk.ktab'),
+                    [
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.1'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.10'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.11'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.12'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.2'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.3'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.4'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.5'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.6'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.7'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.8'),
+                        file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/KMERS/.Galderia_gt20kb_50x_fk.ktab.9')                    
+                    ]]
+                """
+        }
+        }
+        then {
+            println process.out
+            assertAll(
+                { assert process.success },
+                { assert snapshot(process.out).match() }
+            )
+        }
+    }
+
+    // // Test getting versions
+    // test("Get versions") {
+    //     when {
+    //         process {
+    //             """
+    //             input[0] = [
+    //                 [ id:'Galderia_gt20kb_50x' ],
+    //                 file('/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/TESTS/TEST_DATA/Galderia_gt20kb_50x_fk.ktab')
+    //             ]
+    //             """
+    //         }
+    //     }
+    // }
+    // then {
+    //     assertAll(
+    //         { assert process.success },
+    //         { assert snapshot(process.out).match() }
+    //     )
+    // }
+}

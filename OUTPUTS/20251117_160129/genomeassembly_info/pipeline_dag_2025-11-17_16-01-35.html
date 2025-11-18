@@ -1,0 +1,79 @@
+<!--
+  ~ Copyright 2013-2024, Seqera Labs
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+<pre class="mermaid" style="text-align: center;">
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#B6ECE2',
+      'primaryTextColor': '#160F26',
+      'primaryBorderColor': '#065647',
+      'lineColor': '#545555',
+      'clusterBkg': '#BABCBD22',
+      'clusterBorder': '#DDDEDE',
+      'fontFamily': 'arial'
+    }
+  }
+}%%
+flowchart TB
+    subgraph " "
+    v2["Channel.of"]
+    end
+    subgraph " "
+    v5[" "]
+    v6["mito"]
+    v7["plastid"]
+    v10["pat_reads_ch"]
+    v11["mat_reads_ch"]
+    v12["trio_flag_ch"]
+    v13["illumina_10X"]
+    v14["hifi_reads_ch"]
+    v20["busco"]
+    v25["hic_reads_ch"]
+    end
+    subgraph "SANGERTOL_GENOMEASSEMBLY [SANGERTOL_GENOMEASSEMBLY]"
+    subgraph "SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY [GENOMEASSEMBLY]"
+    subgraph "SANGERTOL_GENOMEASSEMBLY:GENOMEASSEMBLY:PREPARE_INPUT [PREPARE_INPUT]"
+    v3(( ))
+    end
+    v24(( ))
+    end
+    end
+    v2 --> v3
+    v3 --> v5
+    v3 --> v6
+    v3 --> v7
+    v3 --> v10
+    v3 --> v11
+    v3 --> v12
+    v3 --> v13
+    v3 --> v14
+    v3 --> v20
+    v24 --> v25
+    v3 --> v24
+
+</pre>
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, maxTextSize: Number.MAX_SAFE_INTEGER, maxEdges: Number.MAX_SAFE_INTEGER });
+</script>
+</body>
+</html>

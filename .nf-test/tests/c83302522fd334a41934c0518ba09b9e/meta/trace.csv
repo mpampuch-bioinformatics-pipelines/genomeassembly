@@ -1,0 +1,2 @@
+name	status	module	cpus	memory	attempt	realtime	%cpu	%mem	peak_rss
+SMUDGEPLOT_HETMERS (Galderia_gt20kb_50x)	COMPLETED	-	4	15 GB	1	16.3s	326.0%	0.1%	319.3 MB

@@ -1,0 +1,2 @@
+name	status	module	cpus	memory	attempt	realtime	%cpu	%mem	peak_rss
+SMUDGEPLOT_HETMERS (Galderia_gt20kb_50x)	FAILED	-	4	15 GB	1	1.8s	298.7%	0.0%	76.7 MB
