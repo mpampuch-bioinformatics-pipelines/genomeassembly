@@ -22,16 +22,17 @@ workflow GENOMESCOPE_MODEL {
 
 
     //
-    // MODULE: GENERATE NANOPLOT
-    //
-    NANOPLOT(reads)
-    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
-
-    //
     // MODULE: MERGE ALL READS IN ONE FILE
     //
     CAT_CAT_READS(reads)
     ch_versions = ch_versions.mix(CAT_CAT_READS.out.versions)
+
+    //
+    // MODULE: GENERATE NANOPLOT
+    //
+    reads.view()
+    NANOPLOT(reads)
+    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
 
     //
     // LOGIC: KEEP THE CORRECT EXTENSION

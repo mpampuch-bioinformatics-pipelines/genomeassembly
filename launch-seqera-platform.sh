@@ -26,7 +26,7 @@
 # Pipeline to launch
 ################################################################################
 
-PIPELINE_NAME_OR_URL="RNAseq"
+PIPELINE_NAME_OR_URL="sangerToL_genome_assembly_local_fork"
 
 ################################################################################
 # Setup
@@ -62,7 +62,6 @@ fi
 
 COMPUTE_ENV="IBEX"
 PROFILES="singularity,kaust"
-INPUT_FILE="samplesheet.csv" # Comment this out if different runs have different inputs
 TIMESTAMP=$(date -Iseconds | sed 's/-//g; s/://g; s/T/_/; s/+.*//')
 
 NXF_OUTPUT_DIR="$(pwd)/OUTPUTS/$TIMESTAMP"
@@ -70,7 +69,6 @@ NXF_LOG_FILE="$NXF_OUTPUT_DIR/nextflow.log"
 
 # Create output directory and copy useful files there for an easier time decipher the pipeline execution afterwards
 mkdir -p "$NXF_OUTPUT_DIR"
-cp "$INPUT_FILE" "$NXF_OUTPUT_DIR"
 cp "$0" "$NXF_OUTPUT_DIR/slurm_script.sbatch" # Copy the script to the output directory
 echo "$(pwd)" > "$NXF_OUTPUT_DIR/projectDir.txt"
 
@@ -94,10 +92,16 @@ echo "NXF_LAUNCH_DIR: $NXF_LAUNCH_DIR"
 ################################################################################
 
 # Launch with configuration 1
-RUN_NAME="TEST_RUN_1"
-RUN_LABELS="trimmer_fastp,Test_Run_2,COMMON_LABEL,time_${TIMESTAMP}"
-echo "RUN_LABELS: $RUN_LABELS"
+RUN_NAME="Galderia_sulphuria_Assembly_20kb_50x_Downsampled"
 RUN_NAME_FULL="${RUN_NAME}_${TIMESTAMP}"
+echo "RUN_NAME_FULL: $RUN_NAME_FULL"
+RUN_LABELS="20kb_50x,time_${TIMESTAMP}"
+echo "RUN_LABELS: $RUN_LABELS"
+# Input file
+INPUT_FILE="/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/INPUTS/Galdi_gt20_50x_samplesheet.yaml"
+echo using input file: $INPUT_FILE
+cp "$INPUT_FILE" "$NXF_OUTPUT_DIR" # Copy the input file to the output directory
+
 NXF_OUTPUT_DIR_RUN_SPECIFIC="${NXF_OUTPUT_DIR}/${RUN_NAME}"
 # Configs
 CONFIG_FILE="nextflow.config"
