@@ -1,24 +1,26 @@
 process BUSCO {
-    tag "$meta.id"
+    tag "${meta.id}"
     label 'process_medium'
 
     conda "bioconda::busco=5.4.3"
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'https://depot.galaxyproject.org/singularity/busco:5.4.3--pyhdfd78af_0':
-        'quay.io/biocontainers/busco:5.4.3--pyhdfd78af_0' }"
+    container "${workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container
+        ? 'https://community-cr-prod.seqera.io/docker/registry/v2/blobs/sha256/41/4137d65ab5b90d2ae4fa9d3e0e8294ddccc287e53ca653bb3c63b8fdb03e882f/data'
+        : 'community.wave.seqera.io/library/busco:6.0.0--a9a1426105f81165'}"
 
     input:
     tuple val(meta), path('tmp_input/*')
-    val lineage                           // Required:    lineage to check against, "auto" enables --auto-lineage instead
-    path busco_lineages_path              // Recommended: path to busco lineages - downloads if not set
-    path config_file                      // Optional:    busco configuration file
+    val lineage
+    // Required:    lineage to check against, "auto" enables --auto-lineage instead
+    path busco_lineages_path
+    // Recommended: path to busco lineages - downloads if not set
+    path config_file
 
     output:
     tuple val(meta), path("*-busco.batch_summary.txt"), emit: batch_summary
-    tuple val(meta), path("short_summary.*.txt")      , emit: short_summaries_txt, optional: true
-    tuple val(meta), path("short_summary.*.json")     , emit: short_summaries_json, optional: true
-    tuple val(meta), path("*-busco")                  , emit: busco_dir
-    path "versions.yml"                               , emit: versions
+    tuple val(meta), path("short_summary.*.txt"), emit: short_summaries_txt, optional: true
+    tuple val(meta), path("short_summary.*.json"), emit: short_summaries_json, optional: true
+    tuple val(meta), path("*-busco"), emit: busco_dir
+    path "versions.yml", emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -26,7 +28,7 @@ process BUSCO {
     script:
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta.id}-${lineage}"
-    def busco_config = config_file ? "--config $config_file" : ''
+    def busco_config = config_file ? "--config ${config_file}" : ''
     def busco_lineage = lineage.equals('auto') ? '--auto-lineage' : "--lineage_dataset ${lineage}"
     def busco_lineage_dir = busco_lineages_path ? "--offline --download_path ${busco_lineages_path}" : ''
     """
@@ -61,13 +63,13 @@ process BUSCO {
     cd ..
 
     busco \\
-        --cpu $task.cpus \\
+        --cpu ${task.cpus} \\
         --in "\$INPUT_SEQS" \\
         --out ${prefix}-busco \\
-        $busco_lineage \\
-        $busco_lineage_dir \\
-        $busco_config \\
-        $args
+        ${busco_lineage} \\
+        ${busco_lineage_dir} \\
+        ${busco_config} \\
+        ${args}
 
     # clean up
     rm -rf "\$INPUT_SEQS"
