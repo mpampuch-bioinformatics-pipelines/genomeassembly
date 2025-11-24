@@ -53,13 +53,6 @@ workflow GENOME_STATISTICS {
 
     //
     // MODULE: RUN BUSCO ON PRIMARY ASSEMBLY
-    // tuple val(meta), path('tmp_input/*')
-    // val lineage
-    // // Required:    lineage to check against, "auto" enables --auto-lineage instead
-    // path busco_lineages_path
-    // // Recommended: path to busco lineages - downloads if not set
-    // path config_file
-    //
     // Assemble input tuple: [meta, fasta, mode, lineage, busco_lineages_path, config_file, clean_intermediates]
 
     BUSCO_PRI(
@@ -77,17 +70,17 @@ workflow GENOME_STATISTICS {
     // MODULE: run BUSCO for haplotigs
     // USED FOR HAP1/HAP2 ASSEMBLIES
     //
-    if ( busco_alt ) {
-        BUSCO_HAP(
-            haplotigs_ch.map { meta, haplotigs -> [meta, haplotigs] },
-            'genome',
-            lineage.map{ meta, lineage_db, lineage_name -> lineage_name },
-            lineage.map{ meta, lineage_db, lineage_name -> lineage_db },
-            [],
-            false
-        )
-        ch_versions = ch_versions.mix(BUSCO_HAP.out.versions.first())
-    }
+    
+    BUSCO_HAP(
+        haplotigs_ch.map { meta, haplotigs -> [meta, haplotigs] },
+        'genome',
+        lineage.map{ meta, lineage_db, lineage_name -> lineage_name },
+        lineage.map{ meta, lineage_db, lineage_name -> lineage_db },
+        [],
+        false
+    )
+    ch_versions = ch_versions.mix(BUSCO_HAP.out.versions.first())
+    
 
     if (params.hifiasm_trio_on) {
 
