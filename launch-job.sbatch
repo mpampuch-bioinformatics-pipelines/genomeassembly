@@ -29,7 +29,7 @@ export NXF_WORK=/ibex/scratch/projects/c2303/work
 
 # Put in your file paths
 # E.g.
-INPUT_FILE="Galdi_gt20_50x_samplesheet.yaml"
+INPUT_FILE="INPUTS/Galdi_gt20_50x_samplesheet.yaml"
 CONFIG_FILE="nextflow.config"
 NXF_OUTPUT_DIR="OUTPUTS/$(date -Iseconds | sed 's/-//g; s/://g; s/T/_/; s/+.*//')"
 NXF_LOG_FILE="$NXF_OUTPUT_DIR/nextflow.log"

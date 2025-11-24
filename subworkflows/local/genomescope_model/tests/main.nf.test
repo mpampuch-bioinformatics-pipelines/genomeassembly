@@ -20,7 +20,7 @@ nextflow_workflow {
                 // TODO nf-core: define inputs of the workflow here. Example:
                 input[0] = [
                     [ id:'Galderia_gt20kb_50x', single_end:false ], // meta map
-                    file('/ibex/project/c2303/20251019_Galdi-T2T-Assembly/OUTPUTS/20251023_155416/Galderia_sulphuria_GT20KBreads_50x.fastq.gz', checkIfExists: true)
+                    ['/ibex/project/c2303/20251019_Galdi-T2T-Assembly/OUTPUTS/20251023_155416/Galderia_sulphuria_GT20KBreads_50x.fastq.gz', checkIfExists: true)]
                 ]
                 input[1] = [
                     [ id:'Galderia_gt20kb_50x' ],

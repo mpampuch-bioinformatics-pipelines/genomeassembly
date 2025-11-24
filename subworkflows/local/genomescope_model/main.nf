@@ -22,17 +22,25 @@ workflow GENOMESCOPE_MODEL {
 
 
     //
+    // MODULE: GENERATE NANOPLOT
+    //
+    // If reads are in a list, flatten them to individual tuples for NANOPLOT
+    // NANOPLOT expects: tuple val(meta), path(ontfile)
+
+    reads
+        .map { meta, reads_ch -> [meta, reads_ch[0]] }
+        .set { reads_ch }
+    reads_ch.view()
+
+    NANOPLOT(reads_ch)
+    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
+
+    //
     // MODULE: MERGE ALL READS IN ONE FILE
     //
     CAT_CAT_READS(reads)
     ch_versions = ch_versions.mix(CAT_CAT_READS.out.versions)
 
-    //
-    // MODULE: GENERATE NANOPLOT
-    //
-    reads.view()
-    NANOPLOT(reads)
-    ch_versions = ch_versions.mix(NANOPLOT.out.versions)
 
     //
     // LOGIC: KEEP THE CORRECT EXTENSION

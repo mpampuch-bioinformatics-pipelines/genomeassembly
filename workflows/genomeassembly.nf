@@ -118,7 +118,6 @@ workflow GENOMEASSEMBLY {
     //
     GENOMESCOPE_MODEL( hifi_reads_ch, mat_reads_ch, pat_reads_ch, trio_flag_ch)
     ch_versions = ch_versions.mix(GENOMESCOPE_MODEL.out.versions)
-    
 
     if (params.hifiasm_trio_on) {
 
