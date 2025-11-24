@@ -1,0 +1,24 @@
+dataset:
+  id: Galderia_gt20kb_50x
+  illumina_10X:
+    reads:
+      - https://tolit.cog.sanger.ac.uk/test-data/Undibacterium_unclassified/genomic_data/baUndUnlc1/10x/baUndUnlc1_S12_L002_R1_001.fastq.gz
+      - https://tolit.cog.sanger.ac.uk/test-data/Undibacterium_unclassified/genomic_data/baUndUnlc1/10x/baUndUnlc1_S12_L002_R2_001.fastq.gz
+      - https://tolit.cog.sanger.ac.uk/test-data/Undibacterium_unclassified/genomic_data/baUndUnlc1/10x/baUndUnlc1_S12_L002_I1_001.fastq.gz
+  pacbio:
+    reads:
+      - reads: /ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/DATA/Galderia_sulphuria_GT20KBreads_50x.fastq
+  HiC:
+    reads:
+      - reads: https://tolit.cog.sanger.ac.uk/test-data/Undibacterium_unclassified/genomic_data/baUndUnlc1/hic-arima2/41741_2%237.sub.cram
+hic_motif: GATC,GANTC,CTNAG,TTAA
+hic_aligner: bwamem2
+busco:
+  lineage: rhodophyta_odb12
+mito:
+  species: Galdieria sp.
+  min_length: 15000
+  code: 5
+  fam: https://github.com/c-zhou/OatkDB/raw/main/v20230921/embryophyta_mito.fam
+plastid:
+  fam: https://github.com/c-zhou/OatkDB/raw/main/v20230921/embryophyta_pltd.fam
