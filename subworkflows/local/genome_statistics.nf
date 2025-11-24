@@ -9,8 +9,8 @@
 
 include { GFASTATS as GFASTATS_PRI  } from '../../modules/nf-core/gfastats/main'
 include { GFASTATS as GFASTATS_HAP  } from '../../modules/nf-core/gfastats/main'
-include { BUSCO as BUSCO_PRI        } from '../../modules/nf-core/busco/main'
-include { BUSCO as BUSCO_HAP        } from '../../modules/nf-core/busco/main'
+include { BUSCO as BUSCO_PRI        } from '../../modules/nf-core/busco/main.nf'
+include { BUSCO as BUSCO_HAP        } from '../../modules/nf-core/busco/main.nf'
 include { MERQURYFK_MERQURYFK       } from '../../modules/nf-core/merquryfk/merquryfk/main'
 
 workflow GENOME_STATISTICS {
@@ -53,26 +53,40 @@ workflow GENOME_STATISTICS {
 
     //
     // MODULE: RUN BUSCO ON PRIMARY ASSEMBLY
+    // tuple val(meta), path('tmp_input/*')
+    // val lineage
+    // // Required:    lineage to check against, "auto" enables --auto-lineage instead
+    // path busco_lineages_path
+    // // Recommended: path to busco lineages - downloads if not set
+    // path config_file
     //
-    BUSCO_PRI ( primary_ch.join(lineage)
-                    .map{ meta, primary, lineage_db, lineage_name -> 
-                            [[id:meta.id, lineage:lineage_name], primary]}, 
-            lineage.map{ meta, lineage_db, lineage_name -> lineage_name } ,
-            lineage.map{ meta, lineage_db, ch_lineage -> lineage_db },
-            [] )
+    // Assemble input tuple: [meta, fasta, mode, lineage, busco_lineages_path, config_file, clean_intermediates]
+
+    BUSCO_PRI(
+        primary_ch.map { meta, primary -> [meta, primary] },
+        'genome', 
+        lineage.map{ meta, lineage_db, lineage_name -> lineage_name },
+        lineage.map{ meta, lineage_db, lineage_name -> lineage_db },
+        [],
+        false
+    )
     ch_versions = ch_versions.mix(BUSCO_PRI.out.versions.first())
+    
     
     //
     // MODULE: run BUSCO for haplotigs
     // USED FOR HAP1/HAP2 ASSEMBLIES
     //
     if ( busco_alt ) {
-        BUSCO_HAP ( haplotigs_ch.join(lineage)
-                        .map{ meta, haps, lineage_db, lineage_name -> 
-                                [[id:meta.id, lineage:lineage_name], haps]}, 
-                lineage.map{ meta, lineage_db, lineage_name -> lineage_name } ,
-                lineage.map{ meta, lineage_db, ch_lineage -> lineage_db },
-                [] )
+        BUSCO_HAP(
+            haplotigs_ch.map { meta, haplotigs -> [meta, haplotigs] },
+            'genome',
+            lineage.map{ meta, lineage_db, lineage_name -> lineage_name },
+            lineage.map{ meta, lineage_db, lineage_name -> lineage_db },
+            [],
+            false
+        )
+        ch_versions = ch_versions.mix(BUSCO_HAP.out.versions.first())
     }
 
     if (params.hifiasm_trio_on) {
