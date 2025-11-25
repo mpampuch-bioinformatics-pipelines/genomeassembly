@@ -67,6 +67,9 @@ include { GENOME_STATISTICS as GENOME_STATISTICS_SCAFFOLDS      } from '../subwo
 include { GENOME_STATISTICS as GENOME_STATISTICS_SCAFFOLDS_HAPS } from '../subworkflows/local/genome_statistics'
 include { GENOME_STATISTICS as GENOME_STATISTICS_SCAFFOLDS_TRIO } from '../subworkflows/local/genome_statistics'
 
+include { GENOME_ONLY                                           } from '../subworkflows/local/genome_only' // Genome QC subworkflow
+
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     IMPORT NF-CORE MODULES/SUBWORKFLOWS
@@ -80,6 +83,8 @@ include { SAMTOOLS_FAIDX as SAMTOOLS_FAIDX_PURGEDUPS } from '../modules/nf-core/
 include { SEQTK_SUBSEQ as SEQTK_SUBSEQ_HAPLOTIGS     } from '../modules/nf-core/seqtk/subseq/main'
 include { SEQTK_SUBSEQ as SEQTK_SUBSEQ_PRIMARY       } from '../modules/nf-core/seqtk/subseq/main'
 include { CUSTOM_DUMPSOFTWAREVERSIONS                } from '../modules/nf-core/custom/dumpsoftwareversions/main'
+
+include { FASTA_EXPLORE_SEARCH_PLOT_TIDK             } from '../subworkflows/nf-core/fasta_explore_search_plot_tidk/main' // TIDK subworkflow
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

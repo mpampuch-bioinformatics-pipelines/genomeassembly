@@ -320,7 +320,7 @@ WORKFLOW_RUN_ID=$(tw runs list --max 1 | awk 'NF' |  tail -n 1 | awk '{print $1}
 ################################################################################
 
 # Launch with configuration 5
-RUN_NAME="Galderia_sulphuria_Assembly_20kb_Downsampled"
+RUN_NAME="Galderia_sulphuria_Assembly_20kb"
 RUN_NAME_FULL="${RUN_NAME}_${TIMESTAMP}"
 echo "RUN_NAME_FULL: $RUN_NAME_FULL"
 RUN_LABELS="20kb,time_${TIMESTAMP}"
@@ -605,7 +605,7 @@ WORKFLOW_RUN_ID=$(tw runs list --max 1 | awk 'NF' |  tail -n 1 | awk '{print $1}
 ################################################################################
 
 # Launch with configuration 10
-RUN_NAME="Galderia_yellowstonsis_Assembly_10kb_Downsampled"
+RUN_NAME="Galderia_yellowstonsis_Assembly_10kb"
 RUN_NAME_FULL="${RUN_NAME}_${TIMESTAMP}"
 echo "RUN_NAME_FULL: $RUN_NAME_FULL"
 RUN_LABELS="yellowstonsis_10kb,time_${TIMESTAMP}"
