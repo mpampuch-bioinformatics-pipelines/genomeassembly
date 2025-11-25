@@ -126,7 +126,6 @@ reduction/
 
 # Visualization outputs
 visualization/
-plot/
 figure/
 image/
 graph/
