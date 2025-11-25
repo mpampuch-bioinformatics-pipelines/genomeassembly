@@ -84,7 +84,11 @@ include { SEQTK_SUBSEQ as SEQTK_SUBSEQ_HAPLOTIGS     } from '../modules/nf-core/
 include { SEQTK_SUBSEQ as SEQTK_SUBSEQ_PRIMARY       } from '../modules/nf-core/seqtk/subseq/main'
 include { CUSTOM_DUMPSOFTWAREVERSIONS                } from '../modules/nf-core/custom/dumpsoftwareversions/main'
 
-include { FASTA_EXPLORE_SEARCH_PLOT_TIDK             } from '../subworkflows/nf-core/fasta_explore_search_plot_tidk/main' // TIDK subworkflow
+include { FASTA_EXPLORE_SEARCH_PLOT_TIDK as FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_PRI             } from '../subworkflows/local/fasta_explore_search_plot_tidk/main' // TIDK subworkflow
+include { FASTA_EXPLORE_SEARCH_PLOT_TIDK as FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_HAP             } from '../subworkflows/local/fasta_explore_search_plot_tidk/main' // TIDK subworkflow
+include { FASTA_EXPLORE_SEARCH_PLOT_TIDK as FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_PRI            } from '../subworkflows/local/fasta_explore_search_plot_tidk/main' // TIDK subworkflow
+include { FASTA_EXPLORE_SEARCH_PLOT_TIDK as FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_HAP            } from '../subworkflows/local/fasta_explore_search_plot_tidk/main' // TIDK subworkflow
+
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -186,6 +190,13 @@ workflow GENOMEASSEMBLY {
     )
     ch_versions = ch_versions.mix(GENOME_STATISTICS_RAW.out.versions)
 
+
+    FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_PRI( primary_contigs_ch.map{ meta, primary -> [meta, [primary]], primary_contigs_ch.map{ meta, _primary -> [meta, 'AACCCTAAT'] } } )
+    ch_versions = ch_versions.mix(FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_PRI.out.versions)
+
+    FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_HAP( haplotigs_ch.map{ meta, haplotigs -> [meta, [haplotigs]], haplotigs_ch.map{ meta, _haplotigs -> [meta, 'AACCCTAAT'] } } )
+    ch_versions = ch_versions.mix(FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_HAP.out.versions)
+
     if ( organelles_on ) {
         //
         // LOGIC: CREATE CHANNEL FOR PRIMARY AND ALT CONTIGS
@@ -284,6 +295,13 @@ workflow GENOMEASSEMBLY {
                         unset_busco_alts
         )
     
+
+    FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_PRI( primary_contigs_ch.map{ meta, primary -> [meta, [primary]], primary_contigs_ch.map{ meta, _primary -> [meta, 'AACCCTAAT'] } } )
+    ch_versions = ch_versions.mix(FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_PRI.out.versions)
+
+    FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_HAP( haplotigs_ch.map{ meta, haplotigs -> [meta, [haplotigs]], haplotigs_ch.map{ meta, _haplotigs -> [meta, 'AACCCTAAT'] } } )
+    ch_versions = ch_versions.mix(FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_HAP.out.versions)
+
         //
         // LOGIC: CREATE A CHANNEL FOR THE PURGED CONTIGS AMD HAPLOTIGS 
         //

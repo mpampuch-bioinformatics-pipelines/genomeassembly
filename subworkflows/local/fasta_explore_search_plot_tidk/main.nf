@@ -63,7 +63,7 @@ workflow FASTA_EXPLORE_SEARCH_PLOT_TIDK {
 
     TIDK_SEARCH_APOSTERIORI(
         ch_aposteriori_inputs.map { meta, fasta, seq -> [meta, fasta] },
-        ch_aposteriori_inputs.map { meta, fasta, seq -> 'AACCCTAAT' },
+        ch_aposteriori_inputs.map { meta, fasta, seq -> seq },
     )
 
     ch_aposteriori_tsv = TIDK_SEARCH_APOSTERIORI.out.tsv
