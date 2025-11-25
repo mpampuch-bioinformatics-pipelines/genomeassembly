@@ -1,10 +1,10 @@
-include { SEQKIT_SEQ as FILTER_BY_LENGTH         } from '../../../modules/nf-core/seqkit/seq'
-include { SEQKIT_SORT as SORT_BY_LENGTH          } from '../../../modules/nf-core/seqkit/sort'
-include { TIDK_EXPLORE                           } from '../../../modules/nf-core/tidk/explore'
-include { TIDK_SEARCH as TIDK_SEARCH_APRIORI     } from '../../../modules/nf-core/tidk/search'
-include { TIDK_SEARCH as TIDK_SEARCH_APOSTERIORI } from '../../../modules/nf-core/tidk/search'
-include { TIDK_PLOT as TIDK_PLOT_APRIORI         } from '../../../modules/nf-core/tidk/plot'
-include { TIDK_PLOT as TIDK_PLOT_APOSTERIORI     } from '../../../modules/nf-core/tidk/plot'
+include { SEQKIT_SEQ as FILTER_BY_LENGTH         } from '../../../modules/nf-core/seqkit/seq/main'
+include { SEQKIT_SORT as SORT_BY_LENGTH          } from '../../../modules/nf-core/seqkit/sort/main'
+include { TIDK_EXPLORE                           } from '../../../modules/nf-core/tidk/explore/main'
+include { TIDK_SEARCH as TIDK_SEARCH_APRIORI     } from '../../../modules/nf-core/tidk/search/main'
+include { TIDK_SEARCH as TIDK_SEARCH_APOSTERIORI } from '../../../modules/nf-core/tidk/search/main'
+include { TIDK_PLOT as TIDK_PLOT_APRIORI         } from '../../../modules/nf-core/tidk/plot/main'
+include { TIDK_PLOT as TIDK_PLOT_APOSTERIORI     } from '../../../modules/nf-core/tidk/plot/main'
 
 
 workflow FASTA_EXPLORE_SEARCH_PLOT_TIDK {

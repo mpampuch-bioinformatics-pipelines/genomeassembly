@@ -61,7 +61,7 @@ fi
 ################################################################################
 
 COMPUTE_ENV="IBEX"
-PROFILES="singularity,kaust,test"
+PROFILES="singularity,kaust"
 TIMESTAMP=$(date -Iseconds | sed 's/-//g; s/://g; s/T/_/; s/+.*//')
 
 NXF_OUTPUT_DIR="$(pwd)/TESTS/TEST_OUTPUTS/$TIMESTAMP"
@@ -98,7 +98,7 @@ echo "RUN_NAME_FULL: $RUN_NAME_FULL"
 RUN_LABELS="test,time_${TIMESTAMP}"
 echo "RUN_LABELS: $RUN_LABELS"
 # Input file
-# INPUT_FILE="/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/INPUTS/Galdi_gt20_50x_samplesheet.yaml"
+INPUT_FILE="/ibex/scratch/projects/c2303/20251019_Galdi-T2T-Assembly/SANGERTOL-TEST/GENOME-ASSEMBLER-TEST_Local_fork_rev_0c2aae85173eba12446e3f325431653e2d697c22/genomeassembly/INPUTS/Galdi_gt20_50x_samplesheet.yaml"
 echo using input file: $INPUT_FILE
 cp "$INPUT_FILE" "$NXF_OUTPUT_DIR" # Copy the input file to the output directory
 
@@ -108,9 +108,9 @@ CONFIG_FILE="nextflow.config"
 CONFIG_FILE_RUN_SPECIFIC="$(basename $CONFIG_FILE .config).$RUN_NAME.config"
 cp $CONFIG_FILE $CONFIG_FILE_RUN_SPECIFIC
 
-# // params.input = "$INPUT_FILE"
 # Modify your arguments here
 cat << EOF >> "$CONFIG_FILE_RUN_SPECIFIC"
+params.input = "$INPUT_FILE"
 params.outdir = "$NXF_OUTPUT_DIR_RUN_SPECIFIC"
 
 // process {

@@ -21,8 +21,8 @@ include { GENOME_ONLY_BUSCO_IDEOGRAM as GENOME_ONLY_BUSCO_IDEOGRAM_PRI } from '.
 include { GENOME_ONLY_BUSCO_IDEOGRAM as GENOME_ONLY_BUSCO_IDEOGRAM_HAP } from '../../modules/local/genome_only_busco_ideogram'
 include { BUSCO_TSV_TO_GFF as BUSCO_TSV_TO_GFF_PRI           } from '../../modules/local/busco_tsv_to_gff/main'
 include { BUSCO_TSV_TO_GFF as BUSCO_TSV_TO_GFF_HAP           } from '../../modules/local/busco_tsv_to_gff/main'
-include { ORTHOLOGOUS_CHROMOSOMES as ORTHOLOGOUS_CHROMOSOMES_PRI    } from '../../modules/local/orthologous_chromosomes'
-include { ORTHOLOGOUS_CHROMOSOMES as ORTHOLOGOUS_CHROMOSOMES_HAP    } from '../../modules/local/orthologous_chromosomes'
+include { ORTHOLOGOUS_CHROMOSOMES as ORTHOLOGOUS_CHROMOSOMES_PRI    } from '../../modules/local/orthologous_chromosomes/main'
+include { ORTHOLOGOUS_CHROMOSOMES as ORTHOLOGOUS_CHROMOSOMES_HAP    } from '../../modules/local/orthologous_chromosomes/main'
 include { GAWK as GAWK_PRI                       } from '../../modules/nf-core/gawk/main'
 include { GAWK as GAWK_HAP                       } from '../../modules/nf-core/gawk/main'
 
