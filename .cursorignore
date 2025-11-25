@@ -421,3 +421,5 @@ LICENSE
 
 # nf-test files
 .nf-test
+
+OTHER_PIPELINES/
