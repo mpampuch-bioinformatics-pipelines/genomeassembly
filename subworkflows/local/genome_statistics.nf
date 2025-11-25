@@ -50,7 +50,7 @@ workflow GENOME_STATISTICS {
     //
     // LOGIC: SEPARATE PRIMARY INTO A CHANNEL
     //
-    assembly.map{ meta, primary, haplotigs -> [meta, primary] }
+    assembly.map{ meta, primary, _haplotigs -> [meta, primary] }
         .set{ primary_ch }
 
     //
@@ -62,7 +62,7 @@ workflow GENOME_STATISTICS {
     //
     // LOGIC: SEPARATE HAP INTO A CHANNEL
     //
-    assembly.map{ meta, primary, haplotigs -> [meta, haplotigs] }
+    assembly.map{ meta, _primary, haplotigs -> [meta, haplotigs] }
         .set{ haplotigs_ch }
 
     //
@@ -94,13 +94,13 @@ workflow GENOME_STATISTICS {
 
     // MODULE: RUN TIARA ON PRIMARY ASSEMBLY
     TIARA_PRI(
-        primary_ch.map { meta, primary -> [meta, primary] }
+        primary_ch.map { meta, primary -> [meta, [primary]] }
     )
     ch_versions = ch_versions.mix(TIARA_PRI.out.versions.first())
 
     // MODULE: RUN TIARA ON HAPLOTIGS
     TIARA_HAP(
-        haplotigs_ch.map { meta, haplotigs -> [meta, haplotigs] }
+        haplotigs_ch.map { meta, haplotigs -> [meta, [haplotigs]] }
     )
     ch_versions = ch_versions.mix(TIARA_HAP.out.versions.first())
 

@@ -61,7 +61,7 @@ fi
 ################################################################################
 
 COMPUTE_ENV="IBEX"
-PROFILES="singularity,kaust"
+PROFILES="singularity,kaust,test"
 TIMESTAMP=$(date -Iseconds | sed 's/-//g; s/://g; s/T/_/; s/+.*//')
 
 NXF_OUTPUT_DIR="$(pwd)/TESTS/TEST_OUTPUTS/$TIMESTAMP"
@@ -108,9 +108,9 @@ CONFIG_FILE="nextflow.config"
 CONFIG_FILE_RUN_SPECIFIC="$(basename $CONFIG_FILE .config).$RUN_NAME.config"
 cp $CONFIG_FILE $CONFIG_FILE_RUN_SPECIFIC
 
+# // params.input = "$INPUT_FILE"
 # Modify your arguments here
 cat << EOF >> "$CONFIG_FILE_RUN_SPECIFIC"
-params.input = "$INPUT_FILE"
 params.outdir = "$NXF_OUTPUT_DIR_RUN_SPECIFIC"
 
 // process {
