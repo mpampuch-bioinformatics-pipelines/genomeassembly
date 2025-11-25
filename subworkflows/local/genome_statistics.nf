@@ -13,6 +13,22 @@ include { BUSCO as BUSCO_PRI        } from '../../modules/nf-core/busco/main.nf'
 include { BUSCO as BUSCO_HAP        } from '../../modules/nf-core/busco/main.nf'
 include { MERQURYFK_MERQURYFK       } from '../../modules/nf-core/merquryfk/merquryfk/main'
 
+include { QUAST as QUAST_PRI                     } from '../../modules/nf-core/quast/main'
+include { QUAST as QUAST_HAP                     } from '../../modules/nf-core/quast/main'
+include { ORTHOFINDER as ORTHOFINDER_PRI                } from '../../modules/nf-core/orthofinder/main'
+include { ORTHOFINDER as ORTHOFINDER_HAP                } from '../../modules/nf-core/orthofinder/main'
+include { GENOME_ONLY_BUSCO_IDEOGRAM as GENOME_ONLY_BUSCO_IDEOGRAM_PRI } from '../../modules/local/genome_only_busco_ideogram'
+include { GENOME_ONLY_BUSCO_IDEOGRAM as GENOME_ONLY_BUSCO_IDEOGRAM_HAP } from '../../modules/local/genome_only_busco_ideogram'
+include { BUSCO_TSV_TO_GFF as BUSCO_TSV_TO_GFF_PRI           } from '../../modules/local/busco_tsv_to_gff/main'
+include { BUSCO_TSV_TO_GFF as BUSCO_TSV_TO_GFF_HAP           } from '../../modules/local/busco_tsv_to_gff/main'
+include { ORTHOLOGOUS_CHROMOSOMES as ORTHOLOGOUS_CHROMOSOMES_PRI    } from '../../modules/local/orthologous_chromosomes'
+include { ORTHOLOGOUS_CHROMOSOMES as ORTHOLOGOUS_CHROMOSOMES_HAP    } from '../../modules/local/orthologous_chromosomes'
+include { GAWK as GAWK_PRI                       } from '../../modules/nf-core/gawk/main'
+include { GAWK as GAWK_HAP                       } from '../../modules/nf-core/gawk/main'
+
+include { TIARA_TIARA as TIARA_PRI                } from '../../modules/nf-core/tiara/tiara/main' //[ val(meta), [ fasta ] ]
+include { TIARA_TIARA as TIARA_HAP                } from '../../modules/nf-core/tiara/tiara/main'
+
 workflow GENOME_STATISTICS {
     take:
     assembly                  // channel: [ meta, primary, haplotigs ]
@@ -27,7 +43,10 @@ workflow GENOME_STATISTICS {
 
     main:
     ch_versions = Channel.empty()
-
+    
+    // For tree plot
+    ch_tree_data_pri = Channel.empty()
+    ch_tree_data_hap = Channel.empty()
     //
     // LOGIC: SEPARATE PRIMARY INTO A CHANNEL
     //
@@ -52,6 +71,39 @@ workflow GENOME_STATISTICS {
     GFASTATS_HAP( haplotigs_ch, 'fasta', [], [], [], [], [], [] )
 
     //
+    // MODULE: RUN QUAST ON PRIMARY ASSEMBLY
+    //
+    QUAST_PRI(
+        primary_ch.map { meta, primary -> [meta, primary] },
+        [[], []],
+        [[], []],
+    )
+    ch_versions = ch_versions.mix(QUAST_PRI.out.versions.first())
+    ch_tree_data_pri = ch_tree_data_pri.mix(QUAST_PRI.out.tsv.map { tuple -> tuple[1] })
+
+    //
+    // MODULE: RUN QUAST ON HAPLOTIGS
+    //
+    QUAST_HAP(
+        haplotigs_ch.map { meta, haplotigs -> [meta, haplotigs] },
+        [[], []],
+        [[], []],
+    )
+    ch_versions = ch_versions.mix(QUAST_HAP.out.versions.first())
+    ch_tree_data_hap = ch_tree_data_hap.mix(QUAST_HAP.out.tsv.map { tuple -> tuple[1] })
+
+    // MODULE: RUN TIARA ON PRIMARY ASSEMBLY
+    TIARA_PRI(
+        primary_ch.map { meta, primary -> [meta, primary] }
+    )
+    ch_versions = ch_versions.mix(TIARA_PRI.out.versions.first())
+
+    // MODULE: RUN TIARA ON HAPLOTIGS
+    TIARA_HAP(
+        haplotigs_ch.map { meta, haplotigs -> [meta, haplotigs] }
+    )
+    ch_versions = ch_versions.mix(TIARA_HAP.out.versions.first())
+
     // MODULE: RUN BUSCO ON PRIMARY ASSEMBLY
     // Assemble input tuple: [meta, fasta, mode, lineage, busco_lineages_path, config_file, clean_intermediates]
 
@@ -81,6 +133,22 @@ workflow GENOME_STATISTICS {
     )
     ch_versions = ch_versions.mix(BUSCO_HAP.out.versions.first())
     
+    // GAWK_PRI(
+    //     BUSCO_PRI.out.batch_summary,
+    //     [],
+    //     false,
+    // )
+
+    // ch_tree_data_pri = ch_tree_data_pri.mix(GAWK_PRI.out.output.collect { meta, file -> file })
+
+    // GAWK_HAP(
+    //     BUSCO_HAP.out.batch_summary,
+    //     [],
+    //     false,
+    // )
+    // ch_tree_data_hap = ch_tree_data_hap.mix(GAWK_HAP.out.output.collect { meta, file -> file })
+
+    // ch_full_table_pri = BUSCO_PRI.out.full_table
 
     if (params.hifiasm_trio_on) {
 

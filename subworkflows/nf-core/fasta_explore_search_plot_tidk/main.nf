@@ -41,6 +41,10 @@ workflow FASTA_EXPLORE_SEARCH_PLOT_TIDK {
         )
         | map { id, meta, fasta, seq -> [meta, fasta, seq] }
 
+    // ch_apriori_inputs.view { "ch_apriori_inputs: ${it}" }
+    // ch_apriori_inputs = ch_apriori_inputs.map { meta, fasta, seq -> [meta, fasta, 'AACCCTAAT'] }
+    // ch_apriori_inputs.view { "ch_apriori_inputs after: ${it}" }
+
     TIDK_SEARCH_APRIORI(
         ch_apriori_inputs.map { meta, fasta, seq -> [meta, fasta] },
         ch_apriori_inputs.map { meta, fasta, seq -> seq },
@@ -56,9 +60,10 @@ workflow FASTA_EXPLORE_SEARCH_PLOT_TIDK {
             [meta, fasta, txt.getText().strip()]
         }
 
+
     TIDK_SEARCH_APOSTERIORI(
         ch_aposteriori_inputs.map { meta, fasta, seq -> [meta, fasta] },
-        ch_aposteriori_inputs.map { meta, fasta, seq -> seq },
+        ch_aposteriori_inputs.map { meta, fasta, seq -> 'AACCCTAAT' },
     )
 
     ch_aposteriori_tsv = TIDK_SEARCH_APOSTERIORI.out.tsv

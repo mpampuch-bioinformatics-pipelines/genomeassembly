@@ -65,6 +65,10 @@ workflow GENOME_ONLY {
         | combine(ch_full_table, by: 0)
 
 
+    ch_fasta.view { "ch_fasta: ${it}" }
+    ch_full_table.view { "ch_full_table: ${it}" }
+    ch_input_ideo.view { "ch_input_ideo: ${it}" }
+
     GENOME_ONLY_BUSCO_IDEOGRAM(
         ch_input_ideo
     )
