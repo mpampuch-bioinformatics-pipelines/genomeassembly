@@ -191,10 +191,10 @@ workflow GENOMEASSEMBLY {
     ch_versions = ch_versions.mix(GENOME_STATISTICS_RAW.out.versions)
 
 
-    FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_PRI( primary_contigs_ch.map{ meta, primary -> [meta, [primary]], primary_contigs_ch.map{ meta, _primary -> [meta, 'AACCCTAAT'] } } )
+    FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_PRI( primary_contigs_ch.map{ meta, primary -> [meta, [primary]]}, primary_contigs_ch.map{ meta, _primary -> [meta, 'AACCCTAAT'] } )
     ch_versions = ch_versions.mix(FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_PRI.out.versions)
 
-    FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_HAP( haplotigs_ch.map{ meta, haplotigs -> [meta, [haplotigs]], haplotigs_ch.map{ meta, _haplotigs -> [meta, 'AACCCTAAT'] } } )
+    FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_HAP( haplotigs_ch.map{ meta, haplotigs -> [meta, [haplotigs]]}, haplotigs_ch.map{ meta, _haplotigs -> [meta, 'AACCCTAAT'] } )
     ch_versions = ch_versions.mix(FASTA_EXPLORE_SEARCH_PLOT_TIDK_RAW_HAP.out.versions)
 
     if ( organelles_on ) {
@@ -296,10 +296,10 @@ workflow GENOMEASSEMBLY {
         )
     
 
-    FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_PRI( primary_contigs_ch.map{ meta, primary -> [meta, [primary]], primary_contigs_ch.map{ meta, _primary -> [meta, 'AACCCTAAT'] } } )
+    FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_PRI( primary_contigs_ch.map{ meta, primary -> [meta, [primary]]}, primary_contigs_ch.map{ meta, _primary -> [meta, 'AACCCTAAT'] } )
     ch_versions = ch_versions.mix(FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_PRI.out.versions)
 
-    FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_HAP( haplotigs_ch.map{ meta, haplotigs -> [meta, [haplotigs]], haplotigs_ch.map{ meta, _haplotigs -> [meta, 'AACCCTAAT'] } } )
+    FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_HAP( haplotigs_ch.map{ meta, haplotigs -> [meta, [haplotigs]]}, haplotigs_ch.map{ meta, _haplotigs -> [meta, 'AACCCTAAT'] } )
     ch_versions = ch_versions.mix(FASTA_EXPLORE_SEARCH_PLOT_TIDK_PURGED_HAP.out.versions)
 
         //
