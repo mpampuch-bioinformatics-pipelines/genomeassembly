@@ -21,9 +21,24 @@ process NANOPLOT {
 
     script:
     def args = task.ext.args ?: ''
-    def input_file = "${ontfile}".endsWith(".fastq.gz") || "${ontfile}".endsWith(".fq.gz") || "${ontfile}".endsWith(".fastq") || "${ontfile}".endsWith(".fq")
-        ? "--fastq ${ontfile}"
-        : "${ontfile}".endsWith(".txt") ? "--summary ${ontfile}" : ''
+    def input_file = ''
+    
+    // Check for FASTQ formats
+    if ("${ontfile}".endsWith(".fastq.gz") || "${ontfile}".endsWith(".fq.gz") || 
+        "${ontfile}".endsWith(".fastq") || "${ontfile}".endsWith(".fq")) {
+        input_file = "--fastq ${ontfile}"
+    }
+    // Check for FASTA formats
+    else if ("${ontfile}".endsWith(".fa") || "${ontfile}".endsWith(".fna") || 
+             "${ontfile}".endsWith(".fasta") || "${ontfile}".endsWith(".fa.gz") || 
+             "${ontfile}".endsWith(".fna.gz") || "${ontfile}".endsWith(".fasta.gz")) {
+        input_file = "--fasta ${ontfile}"
+    }
+    // Check for summary format
+    else if ("${ontfile}".endsWith(".txt")) {
+        input_file = "--summary ${ontfile}"
+    }
+    
     """
     echo ${input_file}
     NanoPlot \\
